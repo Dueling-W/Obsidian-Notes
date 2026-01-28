@@ -1,5 +1,5 @@
 
-{{date} {time}}
+{{date}} {{time}}
 
 Tags:
 
