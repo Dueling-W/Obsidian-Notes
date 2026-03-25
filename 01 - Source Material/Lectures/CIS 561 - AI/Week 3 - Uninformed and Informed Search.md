@@ -1,0 +1,132 @@
+## References 
+
+
+## Uninformed Search
+- "Blind search" algorithms
+	- No information about the states beyond the problem definition
+- General idea
+	- Generate possible successors and distinguish and a goal state from a non-goal state
+	- Search strategies differ by the order in which these nodes/successors are expanded
+- Breadth-first search
+	- Root node (initial state) is expanded first
+	- Then all successors of the root node are expanded next, then their successors, and so on
+	- All nodes are expanded at a given depth in the search tree before any nodes at the next level are expanded 
+		- Say depth = 0 node (root), then depth = 1 nodes, then depth = 2 nodes
+	- Data stack: FIFO queue for the frontier 
+	- Space and time complexity of BFS
+		- Imagine a worst-case tree, where it is uniform and every state has b successors
+		- Also, suppose the solution is at depth d, where the target is the last node generated at that level
+		- The root generates b nodes at the first level
+			- Each of those nodes generate b more nodes
+		- It would go like: $b + b^2 + b^3 + \dots + b^d = O(b^d)$
+		- Space complexity would also be $O(b^d)$
+	- This time complexity is scary, along with the memory requirements
+		- In general, memory requirements are an even bigger problem than execution time
+		- But time is still a major factor
+	- Makes BFS not practical for problems that have a big branching factor, like 10/high depth
+	- When all step costs are equal --> breadth-first search is optimal because it always expands the shallowest unexpanded node
+		- Step cost = cost between all nodes is 1
+- Uniform-cost search
+	- Don't expand the shallowest node, instead, expand the node n with the lowest path cost $g(n)$
+	- Store the frontier as a priority queue ordered by g
+	- Doesn't consider number of steps, only total cost
+- Depth-first search
+	- Expand the deepest node in the current frontier 
+	- Proceeds immeditately to the deepest level of the search tree, where the nodes have no successors
+	- DFS uses a LIFO queue (stack)
+	- Memory advantage over BFS when searching in a tree
+		- DFS needs to store only a single path from the root to a leaf node, along with the remaining unexpanded sibling nodes for each on the path
+		- And once a node has been expanded, it can be removed from memory
+		- This results in a space complexity of $O(bm)$
+			- Where $m$ is the max depth and $b$ is the branching factor
+- Depth-limited search (DLS)
+	- Just DFS with a depth limit, where nodes at the limit have no successors
+- Iterative Deepending Search (IDS)
+	- Combines the benefits of BFS and DFS
+	- Uses only linear space with minimal overhead compared to BFS
+
+## Informed (heuristic) Search
+- Review: fundamental search strategy is defined by picking the order of node expansion 
+- Best-First Search
+	- Use an evaluation function for each node to estimate "desirability"
+	- Expand: most desirable unexpanded node
+- Greedy Best-First Search
+	- Based on a heuristic, h(n), which estimates the cost from a node to the goal
+	- Expands the node that appears closest to the goal
+	- Neither complete or optimal
+		- Space usage is also high, requires memory to store all nodes
+- A* Search
+	- Main idea: avoid expanding paths that are already expensive
+	- Evaluation function: combines the cost so far and the estimated cost to the goal
+	- Expands nodes based on a total estimate cost
+	- Complete: Yes, Optimal Yes
+	- Space usage: memory for all nodes
+- Admissible heuristic: used in problems like the 8-puzzle
+	- Like counting misplaced tiles or summing distances to desired locations
+- Dominance: one heuristic is better if it always provides equal or better estimates than another
+- Local Search Algorithms
+	- Optimization problems --> path to the goal is irrelevant; solution is the goal state
+	- Example:
+		- n-queens problem: place $n$ queens on an $n \times n$ board such that no two queens attack each other
+- Hill-Climbing Search
+	- Description: like climbing Everest in thick fog with amnesia (no information)
+	- Problem: easy to get stuck in local maxima, depending on the initial state
+	- Example: 8-queens problems
+		- Variant of the n-queens problem with 8 queens and an 8x8 board
+		- Minimize number of pairs of queens attacking each other
+- Simulated Annealing Search
+	- Escape local maxima by allowing some "bad" moves, gradually decreasing their frequency 
+- Local Beam Search
+	- Keeps track of multiple states instead of one
+		- Start with random states
+		- Generate successors for all states
+		- Select the best states to continue
+		- Stops when a goal state is found
+- Genetic Algorithm
+	- Description: inspired by biological evolution
+	- Process:
+		- Generate a population of states
+		- Represent states using structures like binary strings
+		- Use operators like selection, crossover, and mutation to produce new generations
+	- Can be used with AI for intelligent music composition and solving optimization problems
+
+
+### More Info on Informed
+- Heuristic functions --> impart additional knowledge of the problem to the search algorithm
+- Evaluate function is construed as a cost estimate
+- Choice of f determines the search strategy
+- Greedy best-first search
+	- Expand node that is closest to the goal
+	- Example: route-finding problems in Romania
+		- Heuristic = straight line distance heuristic $h_{SLD}$
+- Uniform-cost vs Greedy best-first
+	- UCS tries to keep you closer to the starting node
+	- While Greedy-best checks how far you are from the goal node
+- A* search
+	- Most widely known form of best-first search
+	- Combines $g(n)$, the cost to reach the node (from UCS), and
+	- $h(n)$, the cost to get from the node to the goal (from GBS)
+	- $f(n) = g(n) + h(n)$
+	- Algorithm overall identical to Uniform-Cost-Search except that A* uses g + h instead of g
+	- Example with the route-finding problem
+		- $h(n)$ will be the straight-line distance, $h_{SLD}$ 
+			- This is from Greedy best-first
+		- $g(n)$ will be the pah cost
+			- This is from Uniform-cost search
+- No formula to decide on a specific heuristic function
+- 8-puzzle example
+	- Average branching factor = 3 (from some tiles you have 2 possible moves, others, four)
+	- Average solution for a random puzzle is about 22 steps
+	- So exhaustive tree search is $b^d=3^{22}$ or about $3.1 \times 10^{10}$ states
+		- Reduces to 181,440 distinct states (still large)
+	- Want heuristics that do not overestimate
+	- Two common heuristics:
+		- $h_{1}$ = the number of misplaced tiles
+			- Simply count the misplaced tiles
+			- Admissible heuristic --> clear that any tile that is out of place must be moved at least once
+		- $h_{2}$ = the sum of the distances of the tiles from their goal positions
+			- Admissible heuristic --> because all any move can do is move on tile one step closer to the goal
+- Summary
+	- Problem consists of five parts: initial state, a set of actions, a transition model describing the results of those actions, a goal test function, and a path cost function
+	- Uninformed search only has access to problem definition
+	- Informed search may have access to a heuristic function h(n)

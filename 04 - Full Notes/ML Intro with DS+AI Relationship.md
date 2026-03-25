@@ -46,5 +46,6 @@ Tags: [[machine learning]] [[data science]] [[artificial intelligence]]
 - Lastly, machine learning is used commonly in the fields of image processing, robotics, data mining, video games, text analysis, and healthcare.
 ![[ai_ml_screenshot2 1.png]]
 
+
 # References
 [[Week 1 - Introduction to AI Video]]

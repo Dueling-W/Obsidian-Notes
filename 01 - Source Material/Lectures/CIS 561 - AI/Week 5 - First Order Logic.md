@@ -1,0 +1,120 @@
+
+## References
+
+
+## Notes
+- What are knowledge bases?
+	- Set of sentences in a formal language
+	- Declarative approach: tell the agent what it needs to known and it can ask itself what to do.
+	- Two levels:
+		- Knowledge level --> what does the agent know?
+		- Implementation level --> data structures in the knowledge base and algorithms for manipulation
+- Agent must:
+	- Represent states, actions, etc.
+	- Incorporate new percepts
+	- Update its internal representation of the world
+	- Deduce hidden properties of the world
+	- Deduce appropriate actions
+- Wumpus World PEAS Description
+	- Performance:
+		- Gold +1000
+		- Death -1000
+		- -1 per step, -10 for using the arrow
+	- Environment:
+		- Adjacent to the Wumpus: smelly
+		- Adjacent to a pit: breezy
+		- Glitter: gold in the square
+		- Shooting kills the Wumpus if facing it
+		- Grabbing picks up gold, releasing drops it
+	- Acuators: left turn, right turn, forward, grab, release, shoot
+	- Sensors: stench, breeze, glitter, bump, scream
+- Describe Wumpus World Environment:
+	- Fully Observable: No (only local perception)
+	- Deterministic: Yes (outcomes are exactly specified)
+		- So there isn't any randomness, such as maybe you have a chance to not pick up the gold when you grab it
+	- Episodic: No, it is sequential
+	- Discrete: Yes, countable amount of actions/tiles
+	- Single-Agent: Yes
+- What is Logic?
+	- Definition: formal languages for representing information so conclusions can be drawn.
+	- Two componenets:
+		- Syntax: defines sentence structure
+		- Semantics: defines the meaning of sentences (truth in a world)
+- Entailment
+	- One thing follows from another
+	- A KB entails a sentence if the sentence is true in all worlds where the knowledge base is true.
+- Propositional logic
+	- Illustrates basic ideas
+	- Syntax:
+		- Propositional symbols like P1, P2P1
+		- Logical operators:
+			- $\neg, \land, \lor, \to, \leftrightarrow$
+			- Negation, conjunction(logical and), disjunction(logical or), implication, and biconditional respectively
+	- Sematics: assigns truth values to symbols in models
+- Inference:
+	- Deriving new sentences from a knowledge base
+	- Methods:
+		- Forward chaining: adds conclusion to the knowledge base based on rules
+			- Data-driven and automatic
+		- Backward chaining: works backwards from a query to check if it can be proven
+			- Goal-driven and useful for problem-solving
+- Proof methods:
+	- Inference rules: generate new sentences from old ones
+	- Model checking: evaluates the truth of sentences in all possible models
+
+
+---
+- Pros and Cons of Propositional Logic
+	-  Advantages:  
+        - Declarative and allows for partial, disjunctive, and negated information.  
+        - Compositional: Meaning of compound statements derived from individual parts.  
+       -  Context-independent meaning.  
+    - Disadvantages:  
+        - Limited expressive power (e.g., cannot represent "pits cause breezes in adjacent squares" without individual sentences for each square).
+- Now we introduce First Order Logic (FOL)
+- Expands on propositional logic by assuming the world has:
+	- Objects
+	- Relations
+	- Functions 
+- Syntax of FOL
+	- Constants: represnt specific object
+	- Predicates: relations (brother, >)
+	- Functions: represents mappings
+	- Variables: generic placeholders
+	- Connectives: logical operators (same as in propositional logic)
+	- Equality: object equivalence
+	- Quantifers: Universal and existential
+- Truth in FOL
+	- Evaluated with respect to a model
+	- Model: contains domain objects and relations
+	- Interpretation: maps constants, predicates, and functions to domain selements
+	- Sentences: true if the objects satisfy the relations or functions as defined
+- Universal Quantification: "Everyone in this state is smart" --> applies to all individuals
+- Existential Quantification --> "Someone in this state is start" --> guaranteed to apply to at least one individual
+- Quantifiers can be reordered and universal and existental quantifers can express each other
+- Equality difeins equivalence between terms under a given interpretation
+	- Example: sibling defined in terms of shared parents.
+- How do agents interact with FOL Knowledge Bases?
+	- Tell: Adding perceptions or facts to the knowledge base
+	- Ask: querying the knowledge base for answers or actions
+- Knowledge Engineering in FOL
+	-     Identify the task.  
+    - Assemble relevant knowledge.  
+    - Decide on vocabulary (predicates, functions, constants).  
+    - Encode general knowledge.  
+    - Encode specific problem instances.  
+    - Pose queries to the inference system.  
+    - Debug the knowledge base.
+- Applications of FOL
+	- Wumpus World: uses FOL to deduce hidden properties and formulate reflexes
+	- Electronic Circuits: verifying circuit functionality using logical representations
+
+---
+- A statement is divided into two parts
+	- A subject or a predicate
+	- Subject such as "x"
+	- Predicate such as "is greater than 3"
+	- Can represent "is greater than 3" as shorthand with G()
+	- So G(x) is equivalent to "x is greater than 3"
+- After assigning the value of a variable x, the statement "x is greater than 3" becomes a proposition and has a truth value (true/false)
+	- But before assigning a value to x it is unknown

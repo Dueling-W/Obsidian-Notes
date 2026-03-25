@@ -1,0 +1,54 @@
+
+## Notes
+- TSP goal: find best possible way of visiting all the cities and returning to the starting point that minimizes the travel cost (or travel distance)
+		- Covering all possible solutions is $\frac{(n-1)!}{2}$ 
+- Comprises symmetric, asymmetric, and multi traveling salesman problems
+- sTSP is the classic TSP
+	- Minimal length closed tour that visits each city once
+	- Cities $v_{i} \in V$ are given by their coordinates $(x_{i}, y_{i})$ and $d_{rs}$ is the Euclidean distance between r and s
+	- Euclidean distance: $\sqrt{(x_{1}-x_{2})^2+(y_{1}-y_{2})^2}$
+- Applications of TSP
+	- Drilling of printed circuit boards: since there are many holes in PCBs, it is worthwhile to minimize the travel time for the machine head when drilling
+	- X-ray crystallography: finding a sequence that minimizes the total positioning time of the equipment in measuring the intensity of X-ray reflections of the crystal from various positions.
+	- Order-picking problem: a warehouse has an order for a subset of the items stored in the warehouse. Distance between two nodes is given by the time needed to move the vehicle from one location to the other. 
+	- Vehicle routing: assume $n$ mail boxes that have to be emptied every day within a certain period of time (say 1 hour). Problem is to find the minimum number of trucks to do this and the shortest time to do the collections using this number of trucks. 
+	- Mask plotting in PCB production: photographic mask is produced for each layer in a PCB. 
+- Applications of mTSP (multi-TSP)
+	- School bus routing problem: minimize number of routes, total distance travelled by all buses is kept at minimnum, no bus is overloaded, and the time required to traverse any route does not exceed a maxiimum allowed policy
+	- Crew scheduling problem: deposit carrying between different branch banks. Determine the routes by all the messengers while having a total minimum cost.
+	- Interview scheduling problem: each broken corresponds to a salesman who must visit a specified set of vendor booths, which are represented by a set of T cities
+	- Design of global navigation satellite system surveying networks: when there are multiple receivers or multiple working periods, the problem of finding the best order of sessions for the receivers can be formulate as an mTSP. 
+- Approximate approaches
+	- Often preferred since solving even moderate size TSP optimally takes huge computational time
+		- "Heuristic" also known as an approximation
+	- Closest neighbor heuristic
+		- Simple and straightforward heuristic. Key to this approach is to always visit the closest city. Time complexity is $O(n^2)$
+	- Greedy heuristic
+		- Repeatedly select the shortest edge and add it to the tour as long as:
+			- Doesn't create a cycle with less than N edges, or increases the degree of any node to more than 2
+			- Don't add the same edge twice
+		- In general, involves sorting of all edges --> adding shortest edge to the tour --> checking if we have N edges
+	- Insertion heuristic
+		- Involves starting with a tour of a subset of all cities, then inserting the rest by some heuristic
+		- Often a triangle starting point
+		- Steps are: select a city **not** in the subtour, having the shortest distance to any one of the cities in the subtour --> find an edge in the subtour such that the cost of inserting the selected city between the edge's cities will be minimal --> repeat until no more cities
+	- Christofide heuristic
+		- Build a minimal spanning tree from the set (connect all nodes with minimal weight) --> create a minimum-weight matching on the set of nodes having an odd degree --> create a euler cycle from the combined graph, and traverse it taking shortcuts to avoid visited nodes
+	- 2-opt and 3-opt
+		- 2-opt refers to randomly removing tow edges from the generated tour, and reconnects the new two paths created. This process is continued until no more improvements can be made.
+		- 3-opt is similar, but it randomly removes three edges, meaning, two ways of reconnecting the three paths into a valid tour.
+		- k-opt, typically involves one 4-opt move, called "the crossing bridges". The reason more 4-opt moves aren't performed is because of computational time.
+		- Lin-Kernighan: variable k-way exchange heuristic. Decides the value of suitable k at each iteration. Complex solution.
+	- Tabu search
+		- Tries to solve a problem with a 2 or 3 opt exchange heuristic - getting stuck in local optimum. TS maintains a tabu list containing bad solutions with bad exchange. Many ways to implement a tabu list. Problem: solution is $O(n^3)$, making it slower than a 2-opt local search.
+	- Simulated annealing
+		- SA is a randomized local search algorithm, but instead using energy states to find an optimal solution and avoid converging to a local minima. SA improves the current solution by randomly pertubing it and accepting the pertubation with a certain probability
+			- Probability is initially high, but it gets lower and lower as the number of iterations increase.
+	- Genetic algorithm
+		- Starts with a randomly generated population of candidate solutions. Some candidates are then mated to produce offspring and some go through a mutating process. A fitness value exists that tells us how good a candidate is. By selecting the most fit candidates for mating and mutation the overall fitness of the population will increase. A typically measure of fitness for TSP is the actual length of the solution. 
+	- Ant colony optimization
+		- Involves having a group of "ants". Pheromone trails will be inversely proptional to the length of the tour. When an ant is deciding which city to move to, the pheromone trail will be taken in account, making it more likely to walk the path with the strongest pheromone trail (and hence, shortest path). Repeated until a tour being short enough is found
+	- The Held-Karp lower bound
+		- Common way of testing the performance of new TSP heuristics. HK bound is a solution to the linear programming relaxation of the integer formulation of TSP. Averages about 0.8% below the optimal tour length
+	- Heuristic solutions for mTSP
+		- Neural networks (NNs), self- organizing NN, GA, TS, SA are some of the approaches applied for mTSP (in general, similar to the above heuristics)
