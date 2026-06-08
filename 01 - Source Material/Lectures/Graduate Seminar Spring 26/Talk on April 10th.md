@@ -1,0 +1,54 @@
+
+## Notes
+- Talk about LLMs and agentic learning 
+- LLMs generate human-like text based on statistical patterns 
+- LLM training involves pre and post training
+	- Feed large text to help the model gain sematic understanding of the language
+	- Fine-tuning and RLHF afterwards 
+	- RLHF helps generate human-aligned respones
+- Usage of LLMs
+	- text generation, summarization, translation, code generation
+- Limitations:
+	- Halluications, limited context size, and computational resources
+- Agentic solutions = LLM + orchestration + execution
+	- More advanced than basic LLMs since basic LLMs are just probabilistic sequence generators
+	- The solution with agentic solutions adds state management, tool usage, and control flow
+- Agentic AI
+	- Goal driven systems
+	- Combines reasoning, planning, and tool usage into unified workflows
+	- Plans and executes multi-step workflows autonomously
+	- Achieves outcomes
+- Agentic AI Architecture
+	- Orchestrator - manages the workflow and execution state
+	- LLM - serves as reasoning and decision engine
+	- Planner - decomposes tasks into actionable steps
+	- Memory:
+		- Short and long-term memory
+		- Short --> single, ongoing conversation
+		- Long --> persistent knowledge base that exists across all conversations for individual uesrs
+	- Tools:
+		- Built-in-tools
+		- APIs
+		- and MCP tools
+		- Databases
+		- Files
+	- Communication protocols bring every aspect of the agent together
+- ReAct pattern
+	- at each cycle, the agent percevies its environment, reasons about ntext steps, actons on the world, evaluates results, and iterates until the goal is achieved
+- Tool use patterns: built-in tools, model context protocol, api managemnt platform, and custom function tools
+- Single-agent systems
+	- Leverages one models' reasoning capabilities to plan and execute tasks
+- Multi-agent systems
+	- Employs multiple specialized agents working on concern, each responsible for a discintict sub-domain or capability. an orchestrator coordinates task delegation, information flow, and result aggregation across agents
+- Use cases for agentic AI
+- Demo in kiro
+	- General idea is manage devices in a smart home
+	- Smart-home-orchestrator
+		- Identify task type, read tje relevant composition, spawn subagents, and reconcile findings
+	- Subagents
+		- feature-developer: new features, code changes
+		- debugger: bug fixes, issue investigation
+		- documentation-specialist: framework docs, agent configs
+	- skills + personas
+		- skills: project-specific knowledge
+		- personas: behavior patterns for each subagent
