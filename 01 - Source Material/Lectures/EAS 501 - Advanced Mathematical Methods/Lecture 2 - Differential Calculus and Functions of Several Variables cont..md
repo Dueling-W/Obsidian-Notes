@@ -1,6 +1,6 @@
-{{date}} {{time}}
+2026-09-09 13:47
 
-Course:
+Course: #eas501
 
 ## Big Ideas
 
@@ -26,3 +26,5 @@ Course:
 ## References
 
 *link to other notes, attachments, or actual lecture slides*
+
+- [[Lec0909_2026.pdf]]
