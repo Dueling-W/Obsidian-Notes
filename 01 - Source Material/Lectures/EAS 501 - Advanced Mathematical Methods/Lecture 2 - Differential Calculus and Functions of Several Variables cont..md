@@ -12,7 +12,7 @@ Course: #eas501
 
 ## Notes
 
-### 13.7 Maximum and Minimum Values
+#### 13.7 Maximum and Minimum Values
 
 - **Single-variable case:** if $f(x)$ has a local extreme at $x_0$ and is differentiable there, then $f'(x_0) = 0$ — the usual first-order condition.
 - **Higher-order test:** if the first $n-1$ derivatives vanish at $x_0$ but $f^{(n)}(x_0) \neq 0$, then for even $n$: negative $f^{(n)}(x_0)$ gives a local max, positive gives a local min. For odd $n$, $x_0$ is a horizontal inflection point instead.
@@ -20,7 +20,7 @@ Course: #eas501
 - **Second-order test (Hessian):** build the Hessian matrix $A$ of second partials at the critical point. If $\det A \neq 0$: $A$ positive definite $\Rightarrow$ local min, $A$ negative definite $\Rightarrow$ local max, and mixed-sign eigenvalues $\Rightarrow$ saddle point.
 - This is the direct multivariable analogue of the single-variable second-derivative test — eigenvalue sign replaces the sign of $f''$.
 
-### Constrained Extrema & Lagrange Multipliers
+#### Constrained Extrema & Lagrange Multipliers
 
 - **Setup:** optimize $f(x_1,\dots,x_n)$ subject to $g(x_1,\dots,x_n) = 0$, equivalent to unconstrained optimization of $f^* := f - \lambda g$.
 - **Lagrange conditions:** solve the system $\nabla f - \lambda \nabla g = 0$ together with $g = 0$.
@@ -28,7 +28,7 @@ Course: #eas501
 - Setting up $\nabla f = \lambda \nabla g$ gives $x = 1+\tfrac{\lambda}{2}$ and $y = -2+\tfrac{\lambda}{2}$; substituting into the constraint solves $\lambda = -4$.
 - **Result:** the closest point is $(-1,-4)$ — a clean geometric check is that this is just the foot of the perpendicular from $(1,-2)$ to the line.
 
-### 13.8 Leibniz Rule — the trickier part
+#### 13.8 Leibniz Rule — the trickier part
 
 - The general **Leibniz rule** handles differentiating an integral whose *integrand and both limits* all depend on the variable you're differentiating with respect to:
 
@@ -71,12 +71,27 @@ du = x*dv \\
 \text{Next, apply log rules to simplify} \\
 2\ln(5x^2) = 2\ln(5)+2\ln(x^2), \text{by: } \log_{c}(ab)=\log_{c}(a)+\log_{c}(b) \\
 = 2\ln(5)+4\ln(x), \text{by: } \log_{a}(x^b) = b*\log_{a}(x) \\
+=\ln(2x^2) = \ln2 + \ln(x^2) = \ln(2) + 2\ln(x)\\
 \text{Evaluate prior integral between ranges 2x and x} \\
 
 \end{gather}
 $$
 	- Note: the full integration for 1/v^2+1 is a little complicated, but can be followed step-by-step in [this video](https://www.youtube.com/watch?v=II7Rvv9oDsg)
-	- 
+	- $$
+\begin{gather}
+\text{So, putting everything together: } \\
+\left( 2\tan^{-1}\left( \frac{u}{x} \right) \right)_{u=x}^{u=2x} + 2(\ln(5)+2\ln x) - 1*(\ln2+2\ln x) \\
+\text{by sub.}: =2\tan^{-1}2 - \frac{\pi}{2} +\ln \frac{25}{2} + 2\ln x, \text{ solved Leibniz rule} \\
+\text{Then we arrive at: } \\
+\frac{d^2}{dx^2}\int_{x}^{2x}\ln(u^2+x^2)du = 0 + 2(\ln x)'_{x} = 2 * \frac{1}{x} = \frac{2}{x}
+\end{gather}
+$$
+- Intuition behind Leibniz rule:
+	- Can think of the problem set-up as pollution in a river.
+	- Let $u$ be distance downstream from a factory and $x$ be time
+	- Integrand $c(u, x)$ is the pollutant concentration at distance $u$ at time $x$ 
+	- The stretch of river you monitor is from x km to 2x km (tracking where a spill's leading edge has reached, since it is expanding over time).
+	- ![[Pasted image 20260924105740.png]]
 
 
 ## Questions/Gaps/Concerns
@@ -94,4 +109,4 @@ $$
 *link to other notes, attachments, or actual lecture slides*
 
 - [[Lec0909_2026.pdf]]
-- -[[11 - Integration Formulas.pdf]]
+- [[11 - Integration Formulas.pdf]]
