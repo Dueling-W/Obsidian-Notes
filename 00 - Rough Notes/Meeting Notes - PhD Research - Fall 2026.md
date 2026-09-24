@@ -1,3 +1,18 @@
+## 2026.09.24 Meeting
+- Different ways to detect changes
+	- Auto-encoder method (more complex)
+	- Statistical methods more straightforward
+- Element of real-time training:
+	- Drift detected --> perform some real-time training to adjust model to new context
+	- New idea compared to journal paper --> don't need real-time training all of the time (this also improves efficiency)
+- Mixture of experts with the Dempster-Shafer theory
+	- Reasoning with uncertainty
+	- Possible experts --> multiple models + doctor
+		- Combine their opinions to make a prediction
+- Send over timeline/plan before next meeting
+	- How to make the deadline of the conference paper?
+	- What problem are we explicitly solving and why should people care?
+- Meeting next week at same time (2 pm)
 
 ## 2026.09.10 Meeting
 - Look a little bit more into diabetes
