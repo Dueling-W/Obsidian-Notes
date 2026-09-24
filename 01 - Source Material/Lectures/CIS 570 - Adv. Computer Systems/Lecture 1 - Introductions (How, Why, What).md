@@ -27,7 +27,9 @@ Course: #cis570
 - General design principles
 	- Need to parallelize things (do this at the hardware level)
 	- Locality --> how we have different levels of cache
-- 
+
+
+![[CIS 570 Syllabus.pdf]]
 
 ## Questions/Gaps/Concerns
 
@@ -44,4 +46,4 @@ Course: #cis570
 *link to other notes, attachments, or actual lecture slides*
 
 - [[Lecture0-Overview-570.pdf]]
-- 
+- [[CIS 570 Syllabus.pdf]]

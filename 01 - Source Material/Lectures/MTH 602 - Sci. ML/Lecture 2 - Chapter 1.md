@@ -55,7 +55,7 @@ y_{N}(\vec{t};\vec{w}) = A\vec{w} \\
 \end{gather}
 $$
 	- Actual steps to solve the minimization problem:
-		1. 
+		1. ref. to images 
 
 
 
