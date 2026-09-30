@@ -1,5 +1,12 @@
 {
   "newFileLocation": "folder",
   "newFileFolderPath": "04 - Full Notes",
-  "attachmentFolderPath": "06 - Attachments"
+  "attachmentFolderPath": "06 - Attachments",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "2",
+    "downscalePercent": 87
+  }
 }

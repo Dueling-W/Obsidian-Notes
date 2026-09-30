@@ -43,10 +43,10 @@
 	- 1 1/2 hours (1pm - 2:30pm): Probability assignment and project proposal (if time) for MTH 602
 	- 2 hours (2:30pm to 4:30pm): Work on proposal for CIS 570
 	- 30 minutes (4:30pm to 5pm): Wrap up project proposal (MTH 602)
-- Tuesday - 7 1/2 hours
+- Tuesday - 8 hours
 	- 4 hours (7:30am - 11:30am): EAS 501 studying and lecture reviewing
-	- 3 hours (12:30pm to 3:30pm): Project timeline document
-	- 30 minutes (3:30pm to 4pm): Wrap-up project timeline document
+	- 2 hours (1pm - 3pm): EAS 501 studying with group
+	- ~2 hours (3pm - 4:45pm): Project timeline document
 - Wednesday - 6 to 7 hours
 	- 3 hours (7:30am - 10:30am): EAS 501 studying and lecture reviewing
 	- 1 1/2 hours (1pm - 2:30pm): 
