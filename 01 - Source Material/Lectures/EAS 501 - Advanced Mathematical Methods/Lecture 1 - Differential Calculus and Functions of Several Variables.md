@@ -27,6 +27,7 @@ Course: #eas501
 		2. Limit must exist at the point, $\lim_{ x \to a }f(x)$ exists
 		3. Value of the function at that point must equal the value of the limit at that point
 			1. $\lim_{ x \to a }f(x) = f(a)$
+	- [Definition of continuity](https://math.libretexts.org/Courses/Monroe_Community_College/MTH_210_Calculus_I_(Professor_Dean)/Chapter_2_Limits/2.6%3A_Continuity)
 - **Partial derivatives (13.3)**: consider a two-dimensional function $f(x, y)$, and a fixed point $(x_{0}, y_{0})$
 	- The following formulas shows how the different partials are actually computed
 	- In $f_{x}$, the variable $y$ is fixed; reverse for $f_{y}$

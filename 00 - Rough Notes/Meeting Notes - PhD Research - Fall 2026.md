@@ -1,3 +1,34 @@
+
+## 2026.10.01 Meeting
+- Focus on co-variate drift
+	- P(Y|X) doesn't actually change
+	- But the distribution of the input features --> P(X) changes
+	- Co-variate easier to detect compared to concept
+- Big picture can start to be worked on soon
+	- Big picture --> figures, introduction, and related work
+- Flu viruses typically change year-to-year and are seasonal
+	- Might be a good disease/virus to focus
+	- Need to do some simulation for flu data
+		- Real patient data --> MIMIC
+		- Flu virus data/labels --> simulated/clustered
+	- Drift should be triggered when flu virus "changes"
+- Need to analyze flu virus, the P(X)
+	- Maybe the symptoms of the flu virus?
+		- Easy flu --> lower temperature
+		- Bad flu --> higher temperature, runny nose, sore throat, etc.
+	- So the impact of the symptoms may change over time
+- All of the necessary data might not be there
+	- Will need to label the data --> clustering technique
+	- What will the labels be?
+		- 0 --> don't need to take the flu shot/low risk
+		- 1 --> high risk patient, take the flu shot
+- Good case study --> show x% of patients swap to having the shot be recommended
+	- Even 5% of a change may be significant
+- Carefully pick out features to select from MIMIC dataset for this purpose
+- Update timeline document weekly
+- Next meeting at the same time
+
+
 ## 2026.09.24 Meeting
 - Different ways to detect changes
 	- Auto-encoder method (more complex)
