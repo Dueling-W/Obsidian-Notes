@@ -1,4 +1,40 @@
+## Fall 2026 Semester
 
+
+### Week of October 5th to October 11th
+
+| **Course Name** | **Assignment**         | **Due Date** | **EST**   | **Priority** | Complete? |
+| --------------- | ---------------------- | ------------ | --------- | ------------ | --------- |
+| CIS 570         | Quiz studying          | 10/06        | ~4-6 hrs  | A2           | ❌         |
+| CIS 570         | Homework 2             | 10/08        | ~1-2 hrs  | A3           | ❌         |
+| MTH 602         | Homework 2 turn-in     | 10/05        | ~30m-1 hr | A1           | ❌         |
+| MTH 602         | Homework 3 - majority  | 10/13        | ~7-13 hrs | B2           | ❌         |
+| RA Work         | Download MIMIC dataset | N/A          | 2-4 hrs   | B3           | ❌         |
+| RA Work         | Refine flu approach    | N/A          | 1-2 hrs   | B4           | ❌         |
+| RA Work         | Basic drift monitoring | N/A          | 2-3 hrs   | B5           | ❌         |
+| RA Work         | Paper draft            | 10/08        | ~1-2 hrs  | B1           | ❌         |
+| **Total**       |                        |              | 19-33 hrs |              | 8 Tasks   |
+
+
+### Week of September 28th to October 4th
+
+| **Course Name** | **Assignment**          | **Due Date** | **EST**       | **Priority** | Complete?   |
+| --------------- | ----------------------- | ------------ | ------------- | ------------ | ----------- |
+| EAS 501         | Study for midterm       | 09/30        | ~8-10 hrs     | A1           | ✅           |
+| MTH 602         | Lab 1                   | 09/30        | ~1-2 hrs      | A2           | ✅           |
+| MTH 602         | Project propsal         | 09/30        | ~1 hr         | A3           | ✅           |
+| MTH 602         | Homework 2              | 10/05        | ~7-10 hrs     | A4           | ❌           |
+| MTH 602         | Read textbook chapter 2 | N/A          | ~2-3 hrs      | B1           | ❌           |
+| CIS 570         | Project propsal         | 10/02        | ~2-3 hrs      | A5           | ❌           |
+| RA Work         | Project timeline        | 10/01        | ~1-2 hrs      | A6           | ✅           |
+| **Total**       |                         |              | **23-31 hrs** |              | **7 Tasks** |
+
+
+
+
+---
+
+## Spring 2026 Semester
 ### Week of March 30th to April 5th, 2026
 
 | **Course Name**       | **Assignment**            | **Due Date** | **EST**        | **Priority** | Complete?   |
