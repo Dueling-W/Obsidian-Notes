@@ -1,0 +1,40 @@
+
+## Notes
+- More recent paper from 2001
+- Starts with the basic framework
+	- Computer architecture is the science of tradeoffs
+	- Describes the flow introduced in our slides (problem to electrons)
+	- Defines ISA and the "microprocessor"
+	- At each step, there are choices and tradeoffs 
+	- Common tradeoff is between higher performance and lower cost
+	- Application space continues to drive the need for unique design points, such as:
+		- Scientific applications such as determining where to drill for oil and predict the weather
+		- guaranteed delivery applications that require the result of a computation by a certain critical deadline
+		- random software packages that people run on their PCs
+	- Instruction supply --> now we can fetch four instructions at a time, decoded, and send them to the core
+		- Three things get in the way: instruction cache misses, fetch breaks, and conditional branch mispredictions
+	- Data supply --> real data storage suffers form latency to obtain a particular data element and the bandwidth necessary to move that data element from its location
+		- Getting worse --> improvements in processor cyclce time continue to grow at a much faster rate than memory cycle time
+	- Instruction processing --> to perform the operations requiredby thees instructions one needs a sufficient number of functional units to process the data as soon as the data is available, and sufficient interconnections to instantly supply a result produced by one functional unit to another functional unit
+		- Another latency problem here that continues to get worse
+- Agents for evolution: 
+	- New requirements for evolution:
+		- I.e. the wide-issue microprocessor because one instruction each cycle was not sufficient
+		- More performance --> need to be able to do multiple instructions (can only do one ADD if one ALU)
+		- In 2001 --> prevaling new requirement involves power consumption
+	- Bottlenecks
+		- Needed innstruction caches bc. slow memory
+		- Two issues resolved with branches: trache cache (so you have the execution order) and branch predictors (predict which branch to take)
+	- Good fortune --> something causes a windfall which can then be used to provide additional features to the microprocessor
+		- Examples: on-chip floating point accelerator and multimedia instruction extension
+- Evolutions
+	- Pipeling --> prefetch next instruction while current is being executed
+	- On-chip caches --> in 1984 to avoid having to get data from off-chip memory
+		- First idea: two layers of cache (one, small super fast and one larger and slower), now we have up to four layers of cache, btw
+	- branch prediction -->didnt show up until the early 1990s
+	- Floating point unit --> early microprocessor had a separate chip to handle floating point operations, now, put the floating point unit on the same chip (late 1980s)
+	- Additional functional units (intel in 1986 was one of the first to have multiple specialized functional units), one for graphical, floating point add, and multiply
+	- Out of order processing --> instructions were allowed to execute whenever their resources becamse available, but were forced to retire in the same order that they occured in the executing program. solution for state restoring is a reorder buffer (1995)
+	- Clusters --> partition execution core into clusters (late 1990s)
+	- Chip multiprocessor --> partition chip into regiosn, with an identical processor occupying each region (2000)
+	- Fast cores --> run the execution core a afrequnecy much faster than the rest of the processor

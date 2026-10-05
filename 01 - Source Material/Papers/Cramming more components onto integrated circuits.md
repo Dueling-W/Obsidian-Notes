@@ -1,0 +1,17 @@
+## Notes
+- Written in 1965
+- Integrated electronics is the future
+	- Personal computing, telephone communications, and data processing listed future benefits
+- These technologies came about in the late 1950's
+	- Objective --> miniaturize electronics equipment
+	- Several approaches: such as thin-film structures and semiconductor integrated circuits
+- Moore discusses the establishment of integrated electronics, even in 1965
+	- Apollo moon landing mission, other military missions, and most companies in the commercial computer field
+- All around benefits --> make electronic techniques more generally available throughout all of society, at a lower cost, and greatly simplifed design
+- Already says that silicon is likely to remain the basic material and says semiconductor integrated circuits will predominate
+- Predicts that not only will the number of components per circuit continue to increased, but the manufacturing cost per component will drop as well
+	- Prediction: in 1970 the cost per component can be expected to be only a tenth of the present cost
+- Talks about the heat problem if a silicon chip has tens of thousands of components
+	- Predicts it won't happen with integrated circuits
+	- Since they are two-dimensional, they have a surface available for cooling close to each center of heat generation
+- 
