@@ -3,17 +3,20 @@
 
 ### Week of October 5th to October 11th
 
-| **Course Name** | **Assignment**         | **Due Date** | **EST**   | **Priority** | Complete? |
-| --------------- | ---------------------- | ------------ | --------- | ------------ | --------- |
-| CIS 570         | Quiz studying          | 10/06        | ~4-6 hrs  | A2           | 🟨        |
-| CIS 570         | Homework 2             | 10/08        | ~1-2 hrs  | A3           | ❌         |
-| MTH 602         | Homework 2 turn-in     | 10/05        | ~30m-1 hr | A1           | ✅         |
-| MTH 602         | Homework 3 - majority  | 10/13        | ~7-13 hrs | B2           | ❌         |
-| RA Work         | Download MIMIC dataset | N/A          | 2-4 hrs   | B3           | ❌         |
-| RA Work         | Refine flu approach    | N/A          | 1-2 hrs   | B4           | ❌         |
-| RA Work         | Basic drift monitoring | N/A          | 2-3 hrs   | B5           | ❌         |
-| RA Work         | Paper draft            | 10/08        | ~1-2 hrs  | B1           | ❌         |
-| **Total**       |                        |              | 19-33 hrs |              | 8 Tasks   |
+| **Course Name** | **Assignment**                        | **Due Date** | **EST**   | **Priority** | Complete? |
+| --------------- | ------------------------------------- | ------------ | --------- | ------------ | --------- |
+| CIS 570         | Quiz studying                         | 10/06        | ~4-6 hrs  | A2           | ✅         |
+| CIS 570         | Homework 2                            | 10/08        | ~1-2 hrs  | A3           | ✅         |
+| MTH 602         | Homework 2 turn-in                    | 10/05        | ~30m-1 hr | A1           | ✅         |
+| MTH 602         | Homework 3 - majority                 | 10/13        | ~7-13 hrs | B2           | 🟨        |
+| RA Work         | Download MIMIC dataset                | N/A          | 2-4 hrs   | B3           | ✅         |
+| RA Work         | Refine flu approach                   | N/A          | 1-2 hrs   | B4           | ✅         |
+| RA Work         | Create mortality dataset using GitHub | N/A          | ~1-2 hrs  | B5           | 🟨        |
+| RA Work         | Basic drift monitoring                | N/A          | 2-3 hrs   | B6           | ❌         |
+| RA Work         | Paper draft                           | 10/08        | ~1-2 hrs  | B1           | ✅         |
+| **Total**       |                                       |              | 20-35 hrs |              | 9 Tasks   |
+
+
 
 
 ### Week of September 28th to October 4th
