@@ -1,4 +1,18 @@
 
+## 2026.10.08 Meeting
+- Concern about per-patient mortality prediction --> accuracy and feasibility
+- Maybe can perform a per-population prediction
+	- Over time, what is the mortality of the population? Is it currently high or low?
+		- Concern --> high-dimensional data because you will probably need to feed in data for *all* the patients
+	- Probably specifically for respiratory diseases because flu is just simply too rare
+- Three things to check for approach
+	- Usefulness of approach
+	- Presence of covariate drift, change in P(X), that results in lower accuracy for a static model
+		- For example, if we are predicting mortality, should go up
+	- Data availability check, such as flu virus not having enough cases on its own
+- Research the available options and send over through email
+- Meeting same time next week 
+
 ## 2026.10.01 Meeting
 - Focus on co-variate drift
 	- P(Y|X) doesn't actually change
