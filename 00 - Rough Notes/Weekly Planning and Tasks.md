@@ -3,14 +3,16 @@
 
 ### Week of October 12th to October 18th
 
-| **Course Name** | **Assignment**        | **Due Date** | **EST**       | **Priority** | Complete?   |
-| --------------- | --------------------- | ------------ | ------------- | ------------ | ----------- |
-| MTH 602         | Midterm studying      | 10/19        | ~10-12 hrs    | A1           | ❌           |
-| CIS 570         | Homework 3            | N/A          | ~2-4 hrs      | A3           | ❌           |
-| RA Work         | Refine exact approach | N/A          | ~2 hrs        | A2           | ❌           |
-| RA Work         | Drift approach        | N/A          | ~2-4 hrs      | A4           | ❌           |
-| RA Work         | Intro + related work  | N/A          | ~3-5 hrs      | B1           | ❌           |
-| **Total**       |                       |              | **19-27 hrs** |              | **5 Tasks** |
+| **Course Name** | **Assignment**                | **Due Date** | **EST**       | **Priority** | Complete?   |
+| --------------- | ----------------------------- | ------------ | ------------- | ------------ | ----------- |
+| MTH 602         | Midterm studying              | 10/19        | ~10-12 hrs    | A1           | ❌           |
+| CIS 570         | Homework 3                    | N/A          | ~2-4 hrs      | A3           | ❌           |
+| CIS 570         | Make lecture 3 slidedeck      | N/A          | ~1-2 hrs      | B2           | ❌           |
+| RA Work         | Refine exact approach + email | N/A          | ~2 hrs        | A2           | ❌           |
+| RA Work         | Drift approach                | N/A          | ~2-4 hrs      | A4           | ❌           |
+| RA Work         | Intro + related work          | N/A          | ~3-5 hrs      | B1           | ❌           |
+| RA Work         | Rough LSTM loop               | N/A          | ~2-3 hrs      | B3           | ❌           |
+| **Total**       |                               |              | **19-27 hrs** |              | **5 Tasks** |
 
 ### Week of October 5th to October 11th
 
