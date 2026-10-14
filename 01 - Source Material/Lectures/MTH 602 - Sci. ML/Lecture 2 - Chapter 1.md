@@ -31,7 +31,8 @@ $$
 	- "Features" --> 1 through $t^M$ would be your inputs
 	- Then each would have their own associated weights that map to y
 - L1, L2, and LP norms (ref. to slides for details)
-	- L1 --> pushes points towards the origin 
+	- L1 --> As a penalty, L1 drives some weights to exactly zero (sparsity)
+	- ![[Pasted image 20261014171816.png]]
 - Example using the prior defined polynomial model
 	- Formal name: linear least squares
 	- Given polynomial model $y_{M}(t, \vec{w})$ find $\vec{w}_{*}$, such that:

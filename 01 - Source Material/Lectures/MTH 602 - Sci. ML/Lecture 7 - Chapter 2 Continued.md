@@ -46,7 +46,7 @@ $$
 	- $$
 \begin{gather}
 y_{i}=\hat{y}(t_{i};\vec{w})+n_{i} & \text{, where n is noise} \\
-\hat{y}=\sum_{i=o}^Mw_{i}t & \text{, least squares polynomial}
+\hat{y}=\sum_{j=0}^M w_{j}t^j & \text{, least squares polynomial}
 \end{gather}
 $$
 	- Now, write the likelihood function for y_i
@@ -59,7 +59,7 @@ $$
 \vec{Y}=(Y^1, Y^2, \dots, Y^N) & \text{given observations} \\
 P(\vec{Y}) = \prod_{i=1}^NP(Y_{i}) & \text{due to i.i.d.} \\
 = \prod_{i=1}^N N(y_{i}|\hat{y}(t_{i};\vec{w}),\sigma^2) \\
-= \prod_{i=1}^N \frac{1}{(2\pi \sigma^2)^\left( \frac{1}{2} \right)}\exp\left[ -\frac{(y_{i}-\hat{y}(t_{i};\vec{w}))}{2\sigma^2} \right] & \text{def. of Gaussian}
+= \prod_{i=1}^N \frac{1}{(2\pi \sigma^2)^\left( \frac{1}{2} \right)}\exp\left[ -\frac{(y_{i}-\hat{y}(t_{i};\vec{w}))^2}{2\sigma^2} \right] & \text{def. of Gaussian}
 \end{gather}
 $$
 	- *fill in notes for the rest of the derivation here from images*

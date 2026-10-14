@@ -56,7 +56,7 @@ I(X=X_{i}) = -\log_{2}P(x_{i})
 $$
 	- Intutition behind the self-information and facts:
 		- Goes to 0 as the probability goes to 1
-		- Becomes unboundedly large as probability goes to 1
+		- Becomes unboundedly large as probability goes to 0
 		- If you didn't win in Powerball, you likely wouldn't tell anybody
 		- If you won in Powerball, that's a lot of information, so you would tell people
 	- $$

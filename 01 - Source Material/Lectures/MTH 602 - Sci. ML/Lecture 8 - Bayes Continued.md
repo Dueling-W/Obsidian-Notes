@@ -75,7 +75,7 @@ $$
 		- So, Player B, who always bets on tails, ends up winning 100,000 dollars per hands
 - Kullback-Letter Divergence - the "better" way
 	- $$
-KL(P||Q) = \int P(x)\left[ \log_{b} \frac{Q(x)}{P(x)} \right]dx
+KL(P||Q) = \int P(x)\left[ \log_{b} \frac{P(x)}{Q(x)} \right]dx = -\int P(x)\left[ \log_{b} \frac{Q(x)}{P(x)} \right]dx
 $$
 	- *where P is the true and Q is the approx. and b can be 2 or e (standard)*
 	- b=2 --> bits, b=e --> nats
@@ -84,7 +84,7 @@ $$
 	- $$
 KL(P||Q_{1})=-\sum_{x\in\{H,T\}}P(x)\log_{2} \frac{Q_{1}(x)}{P(x)}\approx.053\text{ bits}
 $$
-	- The super bad one, where H=0.999999 results in 2.52 bits
+	- The super bad one, where H=0.999999 results in 1.52 bits
 	- Assigning a probability of zero to a true probability results in infinite KL-Divergence
 		- (think of the casino example, imagine a tails shows up when the casino thinks its literally impossible)
 - Two facts of KL-Divergence
@@ -98,7 +98,7 @@ $$
 	- Minimized Kl solution = $\mu_{KL},\sigma^2_{KL}=min_{\mu,\sigma^2}KL(P||\mathcal N(x|\mu,\sigma^2))$
 - Entropy intro
 	- Boltzman entropy = $K_{B}(\ln w)$
-		- *where Kb is Boltzmann's constant and w is the number of macrostates*
+		- *where Kb is Boltzmann's constant and w is the number of microstates consistent with the macrostate*
 	- Shannon Entropy
 		- $H[P]=-\int P(x) \log_{b}P(x)$
 		- If b=e, then: $=-\int P(x)\ln P(x)$
