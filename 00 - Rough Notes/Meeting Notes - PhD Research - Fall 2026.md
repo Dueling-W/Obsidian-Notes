@@ -1,4 +1,26 @@
 
+
+## 2026.10.15 Meeting
+- Patient-level features didn't change very much between summer pneumonia patients to winter pneumonia patients
+	- Could still keep features in (e.g., just because temperature didn't drift during this summer to winter, doesn't mean it will **never** drift)
+	- Dangerous features --> those that are very noisy (could throw off drift detection)
+- Want to integrate more features that more explicitly drift between the summer to the winter
+	- Example --> number of patients with pneumonia
+		- This increases by about 15% from the summer to the winter months (roughly 1000 pneumonia patients to 1200 patients)
+		- The percentage increases even more dramatically because the hospital had more patients in the summer months (6-8) compared to the winter months (12-2)
+	- Limit to 2008-2012 cohort + maybe try to pull in features from the CDC (for example)
+- Overlap from prior papers, but cannot use same sentences, figures, etc.
+	- Can still talk about real-time training, but it doesn't need to be as big of a focus as in prior papers
+- Two components: drift detection (statistical) + real-time training
+	- Real-time training --> can be ported over from prior paper
+	- Statistical drift detection --> mostly already done coding, pre-built methods make it very easy to use to
+		- To-do --> make sure drift detection weighs all features together
+- Possible research option --> combining modern AI with expert systems (a system defined by a knowledge base of rules)
+- Meeting same time next week
+
+
+
+
 ## 2026.10.08 Meeting
 - Concern about per-patient mortality prediction --> accuracy and feasibility
 - Maybe can perform a per-population prediction
