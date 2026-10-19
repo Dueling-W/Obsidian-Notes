@@ -3,8 +3,6 @@
 Course: #mth602 
 
 ## Big Ideas
-
-*quick summary of ideas - 3-5 bullet points max*
 - L2-norm is a bad idea of comparing distributions because the L2 norm can be similar, but the actual distribution shape be very different
 - KL-Divergence is a way of comparing distributions by quantifying the information lost in bits/nats
 - Refer to casino example with dice, casino could lose $10k per hand if they set up their payout wrong
@@ -18,7 +16,7 @@ Course: #mth602
 - How to compare closeness of two probability distributions of $P(x), Q(x)$
 	- Example of what not to do - use L2 norm
 		- $x \in \{x_{i}, x_{2}, x_{3}\}$
-		- Ground truth (target distribution): $p=(.8, .2, 0)$
+		 - Ground truth (target distribution): $p=(.8, .2, 0)$
 		- Two possible distributions:
 			- $Q_{1}=(.6, .4, 0)$
 			- $Q_{2}=(.8,0,.2)$ --> this one is particularly bad because x3 should *never* occur
@@ -55,7 +53,7 @@ $$
 		- So, they change their payout for the expectation to be 1 again
 		- $$
 \begin{gather}
-q_{1}(x=H) = 0.8, q_{2}(x=T) = 0.2 \\
+q_{1}(x=H) = 0.8, \quad q_{2}(x=T) = 0.2 \\
 Payout(x)=
 \begin{cases}
 \frac{1}{.8} & x=H \\

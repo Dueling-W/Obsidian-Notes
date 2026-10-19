@@ -1,18 +1,33 @@
 ## Fall 2026 Semester
 
 
+### Week of October 19th to October 25th
+
+| **Course Name** | **Assignment**                     | **Due Date** | **EST**       | **Priority** | Complete?    |
+| --------------- | ---------------------------------- | ------------ | ------------- | ------------ | ------------ |
+| MTH 602         | Take midterm/final prep            | 10/19        | ~1 hr         | A1           | ❌            |
+| MTH 602         | Homework 4                         | 10/26        | ~11-18 hrs    | A4           | ❌            |
+| CIS 570         | Study for quiz 1                   | 10/20        | ~2-3 hrs      | A2           | ❌            |
+| CIS 570         | Homework 3                         | 10/23        | ~2-3 hrs      | A3           | ❌            |
+| CIS 570         | Project w/ David                   | N/A          | ~2-4 hrs      | A6           | ❌            |
+| EAS 501         | Start studying/plan                | 11/2         | ~2-3 hrs      | B3           | ❌            |
+| RA Work         | Drift detection with good features | 10/20        | ~2-4 hrs      | A5           | ❌            |
+| RA Work         | Intro. + related work draft        | 10/21        | ~3-5 hrs      | B1           | ❌            |
+| RA Work         | LSTM pipeline/static model         | 10/26        | ~2-3 hrs      | B2           | ❌            |
+| **Total**       |                                    |              | **23-38 hrs** |              | **10 Tasks** |
+
+
 ### Week of October 12th to October 18th
 
 | **Course Name** | **Assignment**                | **Due Date** | **EST**       | **Priority** | Complete?   |
 | --------------- | ----------------------------- | ------------ | ------------- | ------------ | ----------- |
-| MTH 602         | Midterm studying              | 10/19        | ~10-12 hrs    | A1           | ❌           |
-| CIS 570         | Homework 3                    | N/A          | ~2-4 hrs      | A3           | ❌           |
+| MTH 602         | Midterm studying              | 10/19        | ~10-12 hrs    | A2           | 🟨          |
+| MTH 602         | Midterm study plan            | 10/14        | ~2-3 hrs      | A1           | ✅           |
 | CIS 570         | Make lecture 3 slidedeck      | N/A          | ~1-2 hrs      | B2           | ❌           |
-| RA Work         | Refine exact approach + email | N/A          | ~2 hrs        | A2           | ❌           |
-| RA Work         | Drift approach                | N/A          | ~2-4 hrs      | A4           | ❌           |
+| RA Work         | Refine exact approach + email | N/A          | ~6 hrs        | A3           | ✅           |
+| RA Work         | Drift approach                | N/A          | ~2-4 hrs      | A4           | ✅           |
 | RA Work         | Intro + related work          | N/A          | ~3-5 hrs      | B1           | ❌           |
-| RA Work         | Rough LSTM loop               | N/A          | ~2-3 hrs      | B3           | ❌           |
-| **Total**       |                               |              | **19-27 hrs** |              | **5 Tasks** |
+| **Total**       |                               |              | **19-27 hrs** |              | **6 Tasks** |
 
 ### Week of October 5th to October 11th
 
