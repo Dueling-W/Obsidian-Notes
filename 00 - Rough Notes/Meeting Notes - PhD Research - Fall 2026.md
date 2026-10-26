@@ -1,4 +1,33 @@
 
+## 2026.10.22 Meeting
+- Presented results from the week
+	- Statistical test --> definitely true drift from the summer to winter
+	- Decent results with basic ridge regression model
+		- Used metric is WAPE (Weighted Average Percentage Error), formula is:
+			- $$
+WAPE = 100* \frac{\sum^n_{t=1}|y_{t}-\hat{y}_{t}|}{\sum^n_{t=1}|y_{t}|}
+$$
+			- Where y_t is the true value and y_t(hat) is the foretasted/predicted value
+		- Baseline performance (predict current P&I admissions for P&I admissions in 7 days) --> 24.19% WAPE
+		- Static model (pre-trained only in the summer) --> 28.94% WAPE
+			- May not seem that much worse than the static model, but the difference is large
+			- Using raw MAE now (which is mean absolute error), this is difference in actual P&I patients between the true/predicted value
+			- Static model --> Average of 5 MAE in September + October
+				- December-February --> Jumps up to an avg. MAE of 9
+				- This corresponds to an 80% relative increase in error
+				- In order words, the static model generated 80% more error during Winter compared to Fall
+		- Triggered re-training model --> 24.21% WAPE
+			- This gains back some of the performance lost from the static model 
+			- Importantly, this model has much lower degradation during the winter months
+			- It is slightly behind the baseline performance (24.19 vs. 24.21)
+			- But such a simple model leaves a ton of room for improvement (it isn't even LSTM)
+- Integrate multiple features into the drift detection framework
+	- Use some kind of correction for all of them
+	- Make sure to present my exact decision threshold (z-score, p-value, etc.)
+- Alarm based system (multiple layers of alarms)
+- Next deliverable --> introduction + related work draft
+- Meeting same time next week
+
 
 ## 2026.10.15 Meeting
 - Patient-level features didn't change very much between summer pneumonia patients to winter pneumonia patients

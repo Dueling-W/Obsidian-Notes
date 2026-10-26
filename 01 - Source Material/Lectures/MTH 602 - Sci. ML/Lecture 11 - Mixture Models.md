@@ -49,7 +49,7 @@ Q(\vec{x}) = \vec{x}^T\Sigma^{-1}\vec{x} = \vec{x}^T \vec{x} = <\vec{x}, \vec{x}
 \end{gather}
 $$
 	 - ![[Pasted image 20261014112736.png|498]]
-		 - Case c) is the one we discussed where the identity matrix is involved, while case b)
+		 - Case c) is the one we discussed where the identity matrix is involved, while case b)....
 		 - Case b) involves stretching the Sigma matrix, similar to the 1-D case where you approach a flat line
  - **Facts about $\Sigma$**
 	 - $\Sigma^{-1}$ is a positive definite matrix:

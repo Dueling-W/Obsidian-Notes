@@ -40,3 +40,4 @@ Course: #cis570
 ## References
 
 *link to other notes, attachments, or actual lecture slides*
+- [[Lec_03 MIPS (ISA).pdf]]
