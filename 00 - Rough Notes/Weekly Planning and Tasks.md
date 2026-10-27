@@ -1,19 +1,34 @@
 ## Fall 2026 Semester
 
 
+### Week of October 26th to November 1st
+
+| **Course Name** | **Assignment**                  | **Due Date** | **EST**       | **Priority** | Complete?   |
+| --------------- | ------------------------------- | ------------ | ------------- | ------------ | ----------- |
+| MTH 602         | Print/submit HW 4               | 10/26        | ~1 hr         | A1           | ✅           |
+| MTH 602         | Scientific methods presentation | 10/30        | ~2-3 hrs      | A3           | ❌           |
+| CIS 570         | Study for quiz                  | 10/27        | ~2-3 hrs      | A2           | ❌           |
+| CIS 570         | Project midterm slides          | 10/30        | ~2 hrs        | A5           | ❌           |
+| CIS 570         | ACE Execution in Pokemon Red    | 10/29        | ~4-5 hrs      | A4           | ❌           |
+| EAS 501         | Start studying/plan             | 11/1         | ~5-8 hrs      | A6           | ❌           |
+| RA Work         | Introduction/related work       | 10/27        | ~4-6 hrs      | A7           | ❌           |
+| RA Work         | Dataset complete                | N/A          | ~2-4 hrs      | B1           | ❌           |
+| RA Work         | LSTM training loop              | N/A          | ~2-4 hrs      | B2           | ❌           |
+| **Total**       |                                 |              | **24-36 hrs** |              | **9 Tasks** |
+
 ### Week of October 19th to October 25th
 
 | **Course Name** | **Assignment**                     | **Due Date** | **EST**       | **Priority** | Complete?    |
 | --------------- | ---------------------------------- | ------------ | ------------- | ------------ | ------------ |
-| MTH 602         | Take midterm/final prep            | 10/19        | ~1 hr         | A1           | ❌            |
-| MTH 602         | Homework 4                         | 10/26        | ~11-18 hrs    | A4           | ❌            |
-| CIS 570         | Study for quiz 1                   | 10/20        | ~2-3 hrs      | A2           | ❌            |
-| CIS 570         | Homework 3                         | 10/23        | ~2-3 hrs      | A3           | ❌            |
-| CIS 570         | Project w/ David                   | N/A          | ~2-4 hrs      | A6           | ❌            |
+| MTH 602         | Take midterm/final prep            | 10/19        | ~1 hr         | A1           | ✅            |
+| MTH 602         | Homework 4                         | 10/26        | ~11-18 hrs    | A4           | ✅            |
+| CIS 570         | Study for quiz 1                   | 10/20        | ~2-3 hrs      | A2           | ✅            |
+| CIS 570         | Homework 3                         | 10/23        | ~2-3 hrs      | A3           | ✅            |
+| CIS 570         | Project w/ David                   | N/A          | ~2-4 hrs      | A6           | ✅            |
 | EAS 501         | Start studying/plan                | 11/2         | ~2-3 hrs      | B3           | ❌            |
-| RA Work         | Drift detection with good features | 10/20        | ~2-4 hrs      | A5           | ❌            |
+| RA Work         | Drift detection with good features | 10/20        | ~2-4 hrs      | A5           | 🟨           |
 | RA Work         | Intro. + related work draft        | 10/21        | ~3-5 hrs      | B1           | ❌            |
-| RA Work         | LSTM pipeline/static model         | 10/26        | ~2-3 hrs      | B2           | ❌            |
+| RA Work         | LSTM pipeline/static model         | 10/26        | ~2-3 hrs      | B2           | 🟨           |
 | **Total**       |                                    |              | **23-38 hrs** |              | **10 Tasks** |
 
 
