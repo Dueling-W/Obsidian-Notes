@@ -27,34 +27,34 @@ Course: #eas501
 ## Schedule
 
 ### Thu 10/29 — Foundations (4.5–5 h)
-- [ ] **1:15** Read Lectures 6–9. Work each example by hand *before* reading its solution. Fill in the Big Ideas yourself.
-- [ ] **0:40** From a blank sheet, with an 18-minute timer each: practice **Q1** (Gram–Schmidt) and **Q2** (null space and rank). Compare to the student answers.
-- [ ] **1:00** Read Lecture 10. Redo L8 Ex 2 and L10 Ex 2 without looking.
-- [ ] **0:45** Draft the **front** of the formula sheet (Lectures 6–10).
-- [ ] Breaks between blocks.
+- [x] **1:15** Read Lectures 6–9. Work each example by hand *before* reading its solution. Fill in the Big Ideas yourself.
+- [x] **0:40** From a blank sheet, with an 18-minute timer each: practice **Q1** (Gram–Schmidt) and **Q2** (null space and rank). Compare to the student answers.
+- [x] **1:00** Read Lecture 10. Redo L8 Ex 2 and L10 Ex 2 without looking.
+- [x] **0:45** Draft the **front** of the formula sheet (Lectures 6–10).
+- [x] Breaks between blocks.
 
 ### Fri 10/30 — Computation drills (aim for 3.5–4 h)
-- [ ] **1:00** Read Lecture 11. Redo L11 Ex 1 (inverse) and Ex 2 (LU) without looking.
-- [ ] **0:45** Timed: practice **Q3** (LU, 18 min) and **Q4** (4×4 inverse, 25 min).
-- [ ] **0:45** Read Lecture 12. Practice the cross-product trick and the trace/det check.
-- [ ] **0:20** Timed: practice **Q5** (eigenvalues and eigenvectors, 18 min).
-- [ ] **0:30** Add Lectures 11–12 to the formula sheet.
+- [x] **1:00** Read Lecture 11. Redo L11 Ex 1 (inverse) and Ex 2 (LU) without looking.
+- [x] **0:45** Timed: practice **Q3** (LU, 18 min) and **Q4** (4×4 inverse, 25 min).
+- [x] **0:45** Read Lecture 12. Practice the cross-product trick and the trace/det check.
+- [x] **0:20** Timed: practice **Q5** (eigenvalues and eigenvectors, 18 min).
+- [x] **0:30** Add Lectures 11–12 to the formula sheet.
 - **If the HW meeting runs long, do this minimum (~1.5 h):** Q3, Q4, and Q5 timed, plus the Test Strategy section of Lectures 11 and 12.
 
 ### Sat 10/31 — Off 🎃
 
 ### Sun 11/1 — Diagonalization + full mock (4–5 h)
-- [ ] **1:00** Read Lecture 13. Redo practice **Q6** completely, including $Q$ normalized and $D$. Redo L13 Ex 2 (repeated eigenvalue).
-- [ ] **0:30** Finish the **back** of the formula sheet.
-- [ ] Break, at least 20 minutes.
-- [ ] **1:15** [[Midterm 2 - Mock Exam]] under real conditions: timer, calculator, your formula sheet, pick 4 of 6.
-- [ ] **0:45** Grade it with [[Midterm 2 - Mock Exam Solutions]]. List every error by type: arithmetic, concept, or time.
-- [ ] Optional if time remains: attempt the 2 mock problems you skipped, untimed.
+- [x] **1:00** Read Lecture 13. Redo practice **Q6** completely, including $Q$ normalized and $D$. Redo L13 Ex 2 (repeated eigenvalue).
+- [x] **0:30** Finish the **back** of the formula sheet.
+- [x] Break, at least 20 minutes.
+- [x] **1:15** [[Midterm 2 - Mock Exam]] under real conditions: timer, calculator, your formula sheet, pick 4 of 6.
+- [x] **0:45** Grade it with [[Midterm 2 - Mock Exam Solutions]]. List every error by type: arithmetic, concept, or time.
+- [x] Optional if time remains: attempt the 2 mock problems you skipped, untimed.
 
 ### Mon 11/2 — Polish (3 h morning + group session)
-- [ ] **1:00** Redo every mock problem where you lost points, from scratch.
-- [ ] **1:00** Drill your weakest problem type twice more. Use the worked examples in the lecture notes with different numbers.
-- [ ] **0:30** Final formula-sheet pass. Add anything you looked up during the mock.
+- [x] **1:00** Redo every mock problem where you lost points, from scratch.
+- [x] **1:00** Drill your weakest problem type twice more. Use the worked examples in the lecture notes with different numbers.
+- [x] **0:30** Final formula-sheet pass. Add anything you looked up during the mock.
 - [ ] **Group session:** trade problems and explain solutions out loud. Teaching is the best last-day review.
 - [ ] Stop heavy work at least 1 hour before 5:30. Eat something.
 

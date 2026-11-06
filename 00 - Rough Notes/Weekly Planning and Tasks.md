@@ -1,5 +1,17 @@
 ## Fall 2026 Semester
 
+### Week of November 2nd to November 8th
+
+| **Course Name** | **Assignment**           | **Due Date** | **EST**       | **Priority** | Complete?   |
+| --------------- | ------------------------ | ------------ | ------------- | ------------ | ----------- |
+| MTH 602         | HW 5 coding/math writeup | 11/4         | ~8-10 hrs     |              | 🟨          |
+| EAS 501         | Wrap-up midterm studying | 11/2         | ~4-5 hrs      |              | ✅           |
+| CIS 570         | Homework 4               | 11/3         | ~3 hrs        |              | ✅           |
+| CIS 570         | Midterm studying         | 11/5         | ~6 hrs        |              | 🟨          |
+| RA Work         | Dataset complete         | N/A          | ~2-4 hrs      |              | ✅           |
+| RA Work         | LSTM training loop       | N/A          | ~2-4 hrs      |              | ✅           |
+| RA Work         | Compile inital results   | N/A          | ~2 hrs        |              | ✅           |
+| **Total**       |                          |              | **24-36 hrs** |              | **9 Tasks** |
 
 ### Week of October 26th to November 1st
 
@@ -9,8 +21,8 @@
 | MTH 602         | Scientific methods presentation | 10/30        | ~2-3 hrs      | A3           | ✅           |
 | CIS 570         | Study for quiz                  | 10/27        | ~2-3 hrs      | A2           | ✅           |
 | CIS 570         | Project midterm slides          | 10/30        | ~2 hrs        | A5           | ✅           |
-| CIS 570         | ACE Execution in Pokemon Red    | 10/29        | ~4-5 hrs      | A4           | 🟨          |
-| EAS 501         | Start studying/plan             | 11/1         | ~5-8 hrs      | A6           | ❌           |
+| CIS 570         | ACE Execution in Pokemon Red    | 10/29        | ~4-5 hrs      | A4           | ✅           |
+| EAS 501         | Start studying/plan             | 11/1         | ~5-8 hrs      | A6           | ✅           |
 | RA Work         | Introduction/related work       | 10/27        | ~4-6 hrs      | A7           | ✅           |
 | RA Work         | Dataset complete                | N/A          | ~2-4 hrs      | B1           | ❌           |
 | RA Work         | LSTM training loop              | N/A          | ~2-4 hrs      | B2           | ❌           |
