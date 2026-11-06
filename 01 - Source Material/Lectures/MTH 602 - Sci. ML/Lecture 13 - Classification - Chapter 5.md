@@ -38,7 +38,7 @@ $$
 &= \frac{1}{N}\|\vec{\vec{y}}-\vec{s}\|_{2}^2 \quad \text{L2 norm}
 \end{aligned}
 $$
-- **Classification* table**
+- **Classification table**
 
 | Problem                   | Data                                                         | Classes                     |
 | ------------------------- | ------------------------------------------------------------ | --------------------------- |

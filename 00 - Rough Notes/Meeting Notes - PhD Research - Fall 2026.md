@@ -1,4 +1,31 @@
 
+## 2026.11.05 Meeting
+- 9 credits next week due to TA work
+	- Classes --> EAS 602, EAS 602/700 (seminar + ethics), EAS 601 (research)
+- Daily, weekly, and monthly predictions
+	- Next day, next full week total, and next month total
+	- Adjust window sizes for each prediction type 
+	- Using an average cuts down on noise significantly
+		- Even a perfect classifier has ~88% accuracy due to pure noise
+- Work on pre-training --> accuracy too low right now, pre-training doesn't do a good enough job
+	- Try to improve accuracy using AI tools
+- Next week not as busy, want to fill out more of the paper (such as dataset or framework section)
+- Meeting same time next week 
+
+## 2026.10.29 Meeting
+- Initial experiment goal --> by next week's meeting
+	- Metrics can be similar to the prior paper on visibility (with our accuracy metric, MAE, etc.)
+- Multiple data points in a day --> better/faster re-training/re-initialization
+	- Possible extra features --> temperature in the day, since it gets colder in the winter, leading to more sickness
+- Diagrams for general idea of approach; drift detected --> retraining of LSTM --> repeat
+- Algorithms for approach: maybe 2-3 algorithms
+	- High level of approach
+	- More detailed with retraining 
+	- Algorithm on KSWIN (drift-detection)
+- Useful figures --> time series graph where you can see the drop in accuracy, then, mark the retraining with a vertical red line
+- Tight deadline --> December 15th, make sure project timeline takes into account Thanksgiving week and exams
+- Meeting same time next week (2pm, Thursday), try to send some initial results over before then
+
 ## 2026.10.22 Meeting
 - Presented results from the week
 	- Statistical test --> definitely true drift from the summer to winter
