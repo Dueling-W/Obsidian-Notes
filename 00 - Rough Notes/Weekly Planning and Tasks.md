@@ -1,5 +1,20 @@
 ## Fall 2026 Semester
 
+
+### Week of November 9th to November 15th
+
+| **Course Name** | **Assignment**                        | **Due Date** | **EST**       | **Priority** | Complete?   |
+| --------------- | ------------------------------------- | ------------ | ------------- | ------------ | ----------- |
+| MTH 602         | Submit HW 5                           | 11/9         | ~20 min       | A1           | ❌           |
+| MTH 602         | Chapter reading and notes revise      | 11/12        | ~4 hrs        | A5           | ❌           |
+| MTH 602         | Make detailed study guide             | -----        | ~1 hr         | B2           | ❌           |
+| CIS 570         | Pokemon Red ACE wrap                  | 11/15        | ~2-3 hrs      | B1           | ❌           |
+| EAS 501         | Homework 1                            | 11/23        | ~2-3 hrs      | B3           | ❌           |
+| RA Work         | Model fine tunings (KSWIN, pre-train) | -----        | ~2 hrs        | A2           | ❌           |
+| RA Work         | Dataset changes                       | -----        | ~3-5 hrs      | A3           | ❌           |
+| RA Work         | Paper writing                         | -----        | ~5-7 hrs      | A4           | ❌           |
+| **Total**       |                                       |              | **19-25 hrs** |              | **8 Tasks** |
+
 ### Week of November 2nd to November 8th
 
 | **Course Name** | **Assignment**           | **Due Date** | **EST**       | **Priority** | Complete?   |

@@ -49,11 +49,12 @@ $$
 		- min H(P, Q) --> really minimizing the KL-Divergence, since $H[P]$ remains constant through different Q's
 ---
 - **1-Dimensional Gaussian (review)**
+	- *Terminology:* multiple variables = multivariate = multidimensional
 	- $$
 x \sim N(x|\mu,\sigma^2) = \frac{1}{(2\pi \sigma^2)^{1/2}}\text{exp}\left[ -\frac{(x-\mu)^2}{2\sigma^2} \right]
 $$
 - **D-Dimensional Gaussian Intro**
-	- $\vec{x}=\mathbb{R}^D$ is a random vector (instead of variable)
+	- $\vec{x} \in \mathbb{R}^D$ is a random vector (instead of variable)
 	- $$
 \begin{gather}
 \mathcal{N}(\vec{x}|\vec{\mu}, \Sigma)=\frac{1}{(2\pi)^{D/2}} \frac{1}{\text{Det}(\Sigma)^{1/2}}\exp \left[ -\frac{1}{2}(\vec{x}-\vec{\mu})^T\Sigma^{-1}(\vec{x}-\vec{\mu}) \right] \\
@@ -61,7 +62,10 @@ $$
 \Sigma \in \mathbb{R}^{D\times D}, \vec{\mu} \in \mathbb{R}^D
 \end{gather}
 $$
-	- Facts:
+	- Parameterized by...
+		- $\vec{\mu}$ is a D-dimensional vector of means
+		- $\Sigma \in \mathbb{R}^{D \times D}$ is the covariate matrix
+	- Facts about $\mathcal{N}(\vec{x} | \vec{\mu}, \Sigma)$
 		- Check for normalization:
 			- $$
 \begin{gather}
@@ -71,7 +75,7 @@ $$
 		- Check the expectation value of $\vec{x}$:
 			- $$
 \begin{gather}
-E[\vec{x}] = \vec{u} \\
+E[\vec{x}] = \int \vec{x}\mathcal{N}(\vec{x}|\vec{\mu}, \Sigma) \, d \vec{x} =  \vec{u} \\
 \text{where: } \vec{x} \sim \mathcal{N}(\vec{\mu}, \Sigma)
 \end{gather}
 $$
@@ -81,6 +85,7 @@ $$
 	- $$
 x_1x_1,\; x_1x_2,\; x_3x_7,\; x_2x_1,\; \dots,\; x_Dx_D
 $$
+		- $D^2$ in total
 	- Collected entrywise into the outer product:
 	- $$
 (\vec{x} \otimes \vec{x})_{ij} = x_i x_j, \qquad \vec{x} \otimes \vec{x} \in \mathbb{R}^{D \times D}
@@ -124,19 +129,21 @@ $$
 	- So the Gaussian's $\sigma^2$ parameter really is its variance
 - **Covariance**
 	- Multivariate version of variance, using the outer product:
+	- Diagonal elements of covariance matrix is just the variance of $x_{i}$
 	- $$
 \begin{gather} \\
-\mathrm{Cov}(\vec{x}) \equiv \mathbb{E}\Big[(\vec{x} - \mathbb{E}[\vec{x}]) \otimes (\vec{x} - \mathbb{E}[\vec{x}])\Big] \\
+\mathrm{Cov}(\vec{x}) \equiv \mathbb{E}\Big[(\vec{x} - \mathbb{E}[\vec{x}]) \otimes (\vec{x} - \mathbb{E}[\vec{x}])\Big] \in \mathbb{R}^{D \times D} \\
 
-=\mathbb{E}[\vec{x} \otimes \vec{x}] = \mathbb{E}[\begin{pmatrix}
+=\mathbb{E}[\vec{x} \otimes \vec{x}] = \mathbb{E}[\vec{x} \otimes \vec{x}] - \mu \otimes \mu =  \mathbb{E}\left[\begin{pmatrix}
 x^2 & xy \\
 yx & y^2
-\end{pmatrix}] = \begin{pmatrix}
+\end{pmatrix}\right] = \begin{pmatrix}
 1 & Cov(xy) \\
 Cov(yx) & 1
 \end{pmatrix}
 \end{gather}
 $$
+		- Middle step above only holds when $\mu = 0$ and variance = 1 (since the diagonals are variances)
 - **Fact 3:** for $\vec{x} \sim \mathcal{N}(\vec{x} \mid \vec{\mu}, \Sigma)$, D-dimensional Gaussian case,
 $$
 \mathrm{Cov}(\vec{x}) = \Sigma

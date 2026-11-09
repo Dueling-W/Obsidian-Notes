@@ -17,7 +17,7 @@ Course: #mth602
 \begin{gather}
 \mathcal{N}(\vec{x}|\vec{\mu}, \Sigma)= \\
 \frac{1}{(2\pi)^{D/2}} \frac{1}{\text{Det}(\Sigma)^{1/2}}\exp \left[-\frac{1}{2}Q(\vec{x})\right] \\
-Q(\vec{x}) = (\vec{x}-\vec{\mu})\Sigma^{-1}(\vec{x}-\vec{\mu})
+Q(\vec{x}) = (\vec{x}-\vec{\mu})^T\Sigma^{-1}(\vec{x}-\vec{\mu})
 \end{gather}
 $$
 		- Introduced in Q(x) to help simplify things now
@@ -49,20 +49,35 @@ Q(\vec{x}) = \vec{x}^T\Sigma^{-1}\vec{x} = \vec{x}^T \vec{x} = <\vec{x}, \vec{x}
 \end{gather}
 $$
 	 - ![[Pasted image 20261014112736.png|498]]
-		 - Case c) is the one we discussed where the identity matrix is involved, while case b)....
-		 - Case b) involves stretching the Sigma matrix, similar to the 1-D case where you approach a flat line
+		 - **Figure 3.4:**
+			 - **(a)** General Σ gives tilted ellipses.
+			 - **(b)** Diagonal Σ gives axis-aligned ellipses.
+			 - **(c)** Σ=σ2I gives circles.
+		 - With $\mathbf{\Sigma} = \sigma^2 \mathbf{I}$, the quadratic form is:
+		 - $$Q = \frac{\Vert{}\mathbf{x} - \boldsymbol{\mu}\Vert{}^2}{\sigma^2}$$
  - **Facts about $\Sigma$**
 	 - $\Sigma^{-1}$ is a positive definite matrix:
-		 - $Q(\vec{x}) = \vec{x}^T\Sigma^{-1}\vec{x} \geq 0$ for $\forall \vec{x} \in \mathbb{R}^D$
+		 - A matrix $\mathbf{\Sigma}$ being positive definite implies a strict condition on the quadratic form:
+		 - $$Q(\mathbf{x}) > 0 \quad \text{for all } \mathbf{x} \ne \boldsymbol{\mu}, \quad \text{and } Q(\mathbf{x}) = 0 \iff \mathbf{x} = \boldsymbol{\mu}$$
+		 - In addition, $\det \mathbf{\Sigma} > 0$, which is required for normalization.
 	 - $\lambda$ are real, $\lambda > 0$
 	 - $\Sigma$ and $\Sigma^{-1}$ are symmetric
 	 - Visualization of 2-D Gaussian on GitHub!
- - **Parametric density estimation: D-Dim Gaussian**
+ - **Example using $\Sigma$**
 	 - $$
 \begin{gather}
-N \text{ observations of } \vec{x}, x \in \mathbb{R}^D \\
+\Sigma = I \\
+\Sigma^{-1} = I \\
+Q(\vec{x}) = \sum^D_{i=1} (x_{i}-\mu_{i})^2 \dots \text{Euclidean L2 distance from } \vec{x} \text{ to } \vec{\mu} 
+\end{gather}
+$$
+ - **Parametric density estimation: D-Dim Gaussian**
+	 - Multivariate Gaussian, same as Gaussian: sampling, priors, likelihoods, density estimation 
+	 - $$
+\begin{gather}
+N \text{ observations of a random vector } \vec{x} \in \mathbb{R}^D \\
 \vec{\vec{x}} = (\vec{x}_{1}, \vec{x}_{2}, \vec{x}_{3}, \dots, \vec{x}_{N}) \\
-\text{each  } \vec{x}_{i} \sim \mathcal{N}(\vec{x}|\vec{\mu}, \Sigma) \\
+\text{each  } \vec{x}_{i} \sim \mathcal{N}(\vec{\mu}, \Sigma) \\
 P(\vec{\vec{x}} | \vec{\mu}, \Sigma) = \prod^N_{i=1} \mathcal{N}(\vec{x}_{i}|\vec{\mu}, \Sigma) = \mathcal{L}(\vec{\mu}, \Sigma) \\
 \vec{\mu}_{ML}, \Sigma_{ML} = \max_{\vec{\mu}, \Sigma} \mathcal{L}(\vec{\mu}, \Sigma)
 \end{gather}
@@ -70,33 +85,57 @@ $$
 	- Very similar to the 1-D case. We are are maximizing the likelihood solution over our parameters (those being mu and Sigma)
 	- $$
 \begin{gather}
+\vec{\mu_{ML}}, \Sigma = \max_{\vec{\mu}, \Sigma} P(\mathbf{\vec{\vec{x}}} | \vec{\mu}, \Sigma) = \dots \text{see book} \\
 \vec{\mu}_{ML} = \frac{1}{N} \sum^N_{i=1} \vec{x}_{i} \\
 \Sigma_{ML} = \frac{1}{N} \sum^N_{i=1} (\vec{x}_{i} - \vec{\mu}_{ML})\otimes(\vec{x}_{i} - \mu_{ML})
 \end{gather}
 $$
 		- These are estimates for each parameter; good question to ask: how good are our estimates?
 - **Estimation bias**
-	- bias of parameters = $\mathbb{E}[\theta_{*}] - \theta_{true}$
-	- put text from images here regarding bias!!
+	- $\text{bias}(\vec{\theta}_{*}) = \mathbb{E}[\vec{\theta_{*}}] - \vec{\theta}^{true}$
+	- Find that the ML solution is biased (same as 1D)
+	- $$
+\begin{aligned}
+E[\vec{\mu}_{ML}] = \vec{\mu} &\qquad \implies bias(\vec{\mu}_{ML}) = 0 \\
+E[\Sigma_{ML}] = \frac{N-1}{N}\Sigma &\qquad \implies bias(\Sigma_{ML}) = \frac{N-1}{N}\Sigma - \Sigma = -\frac{1}{N}\Sigma
+\end{aligned}
+$$
 - **Mixture models for density estimation**
+	- Express probability distribution as a sum ("mixture") of simplier distributions ("components")
 	- $$
 P(\vec{x}) = \sum^K_{i=1}\Pi_{i}P_{i}(\vec{x}) = \sum^K_{i=1}P(\vec{x}|i)P(i)
 $$
-	- P(i) is your probability of the data your are looking at coming from i
+	- View as a conditional probability
+		- $P(k)$ = prior component k
+		- $P(\vec{x} | k)$ = probability of $\vec{x}$ from component $k$
 	- First part is the weighted sum version and just a different way of looking at the problem vs. the probability version
-- **Specifying to Gaussian Mixture Models (GMM)**
-	- Again, N observations using the stacked vector notation used earlier in notes
-	- Likelihood: 
-	- $$
-\begin{gather}
-P(\vec{\vec{x}} | K, \{\Pi_{i}\}^K_{i=1}, \{\vec{\mu}_{i}, \Sigma_{i}\}^K_{i=1}) \\
-
-\end{gather}
+	- Components are typically parameterized
+		- $$
+P(\vec{x} | k, \vec{\theta})
 $$
-		 - Using all of the data we have with $\vec{\vec{x}}$
-		 - The pi's are the weighting values for each distribution, and the final section are the actual Gaussian parameters for each
-		 - 
-
+		- In which case you find $\vec{\theta}$ by maximizing the likelihood, no longer closed form (expectation maximization)
+- **Specifying to Gaussian Mixture Models (GMM)**
+	- All components are multivariate Gaussians
+	- Again, N observations using the stacked vector notation used earlier in notes
+	- Setup:
+		- $$
+\begin{aligned}
+P(\vec{x} | \vec{\theta}, \vec{\pi}_{k}) &= \sum^K_{k=1} \pi_{k} \,\mathcal{N}(\vec{x} | \vec{\theta}_{k}) \\
+\text{where } \vec{\theta}_{k} &= (\vec{\mu}_{k}, \Sigma_{k})
+\end{aligned}
+$$
+	- Step by step: 
+	- $$
+\begin{aligned}
+&\text{Make N observations of } \vec{x} \\ 
+&\qquad \vec{\vec{x}} = (\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{N})\\
+&\text{Form the likelihood function} \\
+&\qquad L(\vec{\theta}_{*}, \vec{\pi}_{*}) = \prod^N_{i=1} P(\vec{x} = \vec{x}_{i} | \vec{\theta}, \vec{\pi}) \\
+&\qquad P(\vec{x} = \vec{x}_{i} | \vec{\theta}, \vec{\pi}) = \sum^K_{k=1} \pi_{k} \, \mathcal{N}(\vec{x} = \vec{x}_{i} | \vec{\mu}_{k}, \Sigma_{k}) \\
+&\text{Maximize the function} \\
+&\qquad \max_{\vec{\theta}_{*}, \vec{\pi}} L(\vec{\theta}, \vec{\pi})
+\end{aligned}
+$$
 
 ## Questions/Gaps/Concerns
 
