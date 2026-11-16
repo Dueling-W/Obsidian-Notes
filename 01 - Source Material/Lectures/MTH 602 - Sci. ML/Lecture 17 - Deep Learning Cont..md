@@ -24,11 +24,12 @@ $$
 			- $z_{1}$ is then transformed using some activation function (non-linearity)
 	- *Equations for a two-layer neural network*
 		- $$
-y(\mathbf{t};\vec{\mathbf{\theta}}) = f\left( \sum_{j=1}^M \omega_{j}^{(2)} h\left( \sum^D_{i=0} \omega_{ji}^{(2)}t_{i} \right) \right)
+y(\mathbf{t};\vec{\mathbf{\theta}}) = f\left( \sum_{j=1}^M \omega_{j}^{(2)} h\left( \sum^D_{i=0} \omega_{ji}^{(1)}t_{i} \right) \right)
 $$
 		- This is for a single $y$, in reality you might have $K$ outputs, in that case, the above function would get a k index
+		- Bias parameters will be added in later...
 		- $$
-y_{k}(\mathbf{t};\vec{\mathbf{\theta}}) = f\left( \sum_{j=1}^M \omega_{jk}^{(2)} h\left( \sum^D_{i=0} \omega_{ji}^{(2)}t_{i} \right) \right)
+y_{k}(\mathbf{t};\vec{\mathbf{\theta}}) = f\left( \sum_{j=1}^M \omega_{jk}^{(2)} h\left( \sum^D_{i=0} \omega_{ji}^{(1)}t_{i} \right) \right)
 $$
 	- *Learnable parameters and residuals*
 		- $$
@@ -57,23 +58,26 @@ $$
 				- ReLU(-1+2) = ReLU(1) = 1
 			- This proves it is a non-linear function
 		- Differentiable
+			- Technically not differentiable at 0
+				- Typical choice --> just pick 0 or 1
 			- $$
 ReLU(x)' = \\
 \begin{cases}
 0 & x < 0 \\
-1  & x \geq 1
+1  & x > 1
 \end{cases}
 $$
 	- *Universal approximation theorem*
 		- Suppose ground truth function is $y(t)$, where $y$ is continuous
 			- $$
-y_{NN} = (t; \vec{\mathbf{\Theta}}_{opt})
+y_{NN}(t; \vec{\mathbf{\Theta}}_{opt})
 $$
 		- Imagine you are claiming the above function is your optimal neural network
 			- Therefore, the following inequality should hold:
 			- $$
-\|y-y_{NN}\|^2_{2} \leq Cm^{-\alpha}
+\|y-y_{NN}\|_{2} \leq Cm^{-\alpha}
 $$
+			- Don't square the above error function (RMS $E_{2}$)
 			- $\alpha >0$ and if y is a smooth function, $\alpha =2$
 			- Can rewrite it as and take the log:
 			- $$
@@ -85,7 +89,6 @@ $$
 $$
 			- What you should get on a log-log plot...
 				- is a straight line with a negative slope, where that slope is $-\alpha$
-			- 
 
 ## Questions/Gaps/Concerns
 

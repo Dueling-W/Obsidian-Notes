@@ -25,10 +25,11 @@ $$
 			- $$
 \begin{aligned}
 P(c_{1}|\vec{\mathbf{x}}) &= \frac{1}{1+\exp(-\alpha)} \\
-\alpha(\vec{\mathbf{x}},\text{likelihood}) &= \ln\left[ \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{2})P(c_{2})} \right]
+\alpha &= \ln\left[ \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{2})P(c_{2})} \right]
 \end{aligned}
 $$
 			- In other words, the $\alpha$ parameter "bundles" the complexity
+			- Posterior --> $\mathbf{\sigma}(\alpha)$
 	- *Example using signal detection*
 		- Problem setup:
 			- $P(c_{1})=P(c_{2})= \frac{1}{2}$, equal probability of signal/no-signal
@@ -43,8 +44,8 @@ $$
 			- This case is important because it is when we can't tell if there is a signal or not
 			- $$
 \begin{aligned}
-\frac{A^2}{2} - Ax &= 0 \\
-x &= \frac{A}{2}
+\frac{A^2}{2} - A\rho &= 0 \\
+\rho &= \frac{A}{2}
 \end{aligned}
 $$
 			- Signal has an amplitude at A = 3, so this shows how the optimal $\rho$ gets set to 1.5 
@@ -61,7 +62,7 @@ $$
 \begin{aligned}
 P(c_{1}|\vec{\mathbf{x}}) &= \frac{1}{1 +\exp[-(\vec{\omega}^T \mathbf{\vec{x}}+\omega_{0})]} \\ \\
 \vec{\omega} &= \Sigma^{-1}(\vec{\mu}_{1}-\vec{\mu}_{2}) \\
-\omega_{0} &= -\frac{1}{2} \vec{\mu_{1}}\Sigma^{-1} \vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}}\Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
+\omega_{0} &= -\frac{1}{2} \vec{\mu_{1}}^T\Sigma^{-1} \vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}}^T\Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
 \end{aligned}
 $$
 		- Concrete values:
@@ -80,7 +81,7 @@ $$
 \begin{gather}
 \frac{1}{1 +\exp[-(\vec{\omega}^T \mathbf{\vec{x}}+\omega_{0})]} \\
 \vec{\omega} \vec{\mathbf{x}} + \omega_{0} \\
-\vec{\omega} = \Sigma^{-1} \mu_{2} = \begin{pmatrix}
+\vec{\omega} = \Sigma^{-1}(\mu_{1}-\mu_{2}) =  -\Sigma^{-1} \mu_{2} = \begin{pmatrix}
 -\frac{1}{2} \\
 0
 \end{pmatrix} \\
@@ -90,6 +91,13 @@ $$
 			- What is the interpretation of -1/2?
 				- This means that you will have arrows pointing to the left, since $\vec{\omega}$ is normal to the decision surface
 				- "Above" means to the left of the decision surface/line (positive), and "below" means to the right of the decision surface/line (negative)
+	- *Benefits of generative models*
+		- Reverse Bayes' rule --> $P(x | \text{class})$
+			- Generate sythentic data from the class
+		- Decide at runtime what the class priors will be
+		- Decide on treshold after the model is built 
+			- If risk/loss changes over time
+		- Combine hetergeneous datasets more easily
 - **Deep learning introduction**
 	- Modeling
 		- Writing down a model (refer to prior notes), now we have a nonlinear model of many parameters 

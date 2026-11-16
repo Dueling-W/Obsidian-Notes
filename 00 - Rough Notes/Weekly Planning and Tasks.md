@@ -3,6 +3,22 @@
 
 ### Week of November 9th to November 15th
 
+| Course Name | Assignment                   | Due Date | EST           | Priority | Complete?   |
+| :---------- | :--------------------------- | :------- | :------------ | :------- | :---------- |
+| MTH 602     | HW 6 Math + Submit           | 11/18    | ~2-3 hrs      | A1       | 🟨          |
+| MTH 602     | Midterm studying             | 11/23    | ~11-18 hrs    | A2       | 🟨          |
+| CIS 570     | Light quiz studying          | 11/17    | ~2 hrs        | A7       | ❌           |
+| CIS 570     | Meeting w/David              | 11/16    | ~1 hr         | A5       | ✅           |
+| CIS 570     | Homework 5                   | 11/20    | ~3-4 hrs      | A6       | ❌           |
+| RA Work     | Dataset revisions (simulate) | -----    | ~4-5 hrs      | A3       | ❌           |
+| RA Work     | KSWIN Work                   | -----    | ~2 hrs        | B1       | ❌           |
+| RA Work     | Window tuning                | -----    | ~2 hrs        | B2       | ❌           |
+| RA Work     | Paper writing                | -----    | ~3-4 hrs      | A4       | ❌           |
+| **Total**   |                              |          | **30-41 hrs** |          | **9 Tasks** |
+
+
+### Week of November 9th to November 15th
+
 | **Course Name** | **Assignment**                        | **Due Date** | **EST**       | **Priority** | Complete?   |
 | --------------- | ------------------------------------- | ------------ | ------------- | ------------ | ----------- |
 | MTH 602         | Submit HW 5                           | 11/9         | ~20 min       | A1           | ✅           |

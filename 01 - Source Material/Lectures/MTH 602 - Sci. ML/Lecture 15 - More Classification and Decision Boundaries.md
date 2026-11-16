@@ -84,8 +84,8 @@ $$
 			- $$
 \begin{aligned}
 P(c_{1}|\vec{\mathbf{x}}) &= \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1}) + P(\vec{\mathbf{x}}|c_{2})P(c_{2})} = \frac{1}{1 + \frac{P(\vec{\mathbf{x}}|c_{2})P(c_{2})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}} \\
-&= \frac{1}{1+\exp(-\sigma)} = \mathbf{\sigma}(\sigma) = \text{logistic function} \\
-\sigma &= \ln\left[ \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{2})P(c_{2})} \right]
+&= \frac{1}{1+\exp(-\alpha)} = \mathbf{\sigma}(\alpha) = \text{logistic function} \\
+\alpha &= \ln\left[ \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{2})P(c_{2})} \right]
 \end{aligned}
 $$
 		- Also, the probability for class 2 given our data $\vec{\mathbf{x}}$ can be found easily by subtraction:
