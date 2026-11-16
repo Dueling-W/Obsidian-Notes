@@ -28,7 +28,7 @@ Course: #mth602
 	2. What's the normal $\hat{\omega}$ to this surface?
 		1. $\|\hat{\omega}\|_{2}^2 = 1$
 		2. Example: $\hat{\omega} = (1, 0)$
-			1. It just creates a 90 degree angle with the line. (1, 5) should be perfectly fine as well, for example.
+			1. It just creates a 90 degree angle with the line. A vertical line's normal must point along $x_{1}$, so it's c*(1, 0) for any $c \neq 0$
 	3. Actual formula:
 		-  $$
 y(\hat{x}) = (1, 0)\begin{pmatrix}
@@ -50,29 +50,51 @@ y((1,0)) &= 0 \\
 \end{aligned}
 $$
 - **Generative Probabilistic Classifier**
-	- K classes, denoted as $c_{k}$
-	- Joint probability of $\vec{x}$ and $c_{K}$ = 
-	- $$
+	- *Problem set-up*
+		- Use Bayes' rule applied to classes and data
+		- K classes, denoted as $c_{k}$
+		- Data $\vec{\mathbf{x}}$
+	- *Generative classifiers - basics*
+		- Joint probability of $\vec{x}$ and $c_{K}$ = 
+			- $$
 \begin{gather}
 P(\vec{x}, c_{k}) = P(c_{k}, \vec{x}) \\
 P(\vec{x} | c_{k})P(c_{k}) = P(c_{k} | \vec{x})P(\vec{x}) \\
 P(c_{k} | \vec{x}) = \frac{P(\vec{x}|c_{k})P(c_{k})}{P(\vec{x})}
 \end{gather}
 $$
-	- Normalization: $$
-\sum_{K} = P(c_{k}|\vec{x}) = 1
+			- Applied the symmetry of joint probability rule:
+				- $P(A, B) = P(B, A)$
+		- Normalization: $$
+\sum_{k=1}^K = P(c_{k}|\vec{x}) = 1
 $$
-		- Sum over all of the classes needs to equal 1
-	- Now by substitution, we can get: $$
-P(c_{k}|\vec{x}) - \frac{P(\vec{x}|c_{k})P(c_{k})}{\sum_{K}P(\vec{x}|c_{k})P(c_{k})}
+			- Sum over all of the classes needs to equal 1
+		- Now by substitution, we can get: $$
+P(c_{k}|\vec{x}) = \frac{P(\vec{x}|c_{k})P(c_{k})}{\sum_{K}P(\vec{x}|c_{k})P(c_{k})}
 $$
-	- Let's look at the case for two classes and class = 1:
-		- $$
-P(c_{k}|\vec{x}) - \frac{P(\vec{x}|c_{1})P(c_{1})}{P(\vec{x}|c_{1})P(c_{1}) + P(\vec{x}|c_{2})P(c_{2})}
+		- Let's look at the case for two classes and class = 1:
+			- $$
+P(c_{k}|\vec{x}) = \frac{P(\vec{x}|c_{1})P(c_{1})}{P(\vec{x}|c_{1})P(c_{1}) + P(\vec{x}|c_{2})P(c_{2})}
 $$
-	- This entire function can actually be modeled as a simple logistic function
-		- Ref to images for proof and paste in plot from book 
-		- This specifically works because there are two classes, and you basically bunch up/model the complexity in the $\alpha$ parameter
+			- The first term in the numerator is the likelihood, while $P(c_{1})$ is the prior on classes
+			- Finding likelihood --> either specify with known form, use maximum likelihood, or fit for it algorithmically (e.g. Gaussian Mixture Models)
+	- *Logistic regression with 2-class case*
+		- Idea behind logistic regression formula --> bundle data complexity ("data" and likelihood functions) in a singular parameter, called $\sigma$
+		- Formulation:
+			- $$
+\begin{aligned}
+P(c_{1}|\vec{\mathbf{x}}) &= \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1}) + P(\vec{\mathbf{x}}|c_{2})P(c_{2})} = \frac{1}{1 + \frac{P(\vec{\mathbf{x}}|c_{2})P(c_{2})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}} \\
+&= \frac{1}{1+\exp(-\sigma)} = \mathbf{\sigma}(\sigma) = \text{logistic function} \\
+\sigma &= \ln\left[ \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{2})P(c_{2})} \right]
+\end{aligned}
+$$
+		- Also, the probability for class 2 given our data $\vec{\mathbf{x}}$ can be found easily by subtraction:
+			- $$
+P(c_{2}|\vec{\mathbf{x}}) = 1-P(c_{1}|\vec{\mathbf{x}}) = 1 -\mathbf{\sigma}(\sigma) = \sigma(-\sigma)
+$$
+		- Lastly, note that log(1) = 0 and $\sigma(0) = \frac{1}{2}$
+		- This specifically works because there are two classes, and you basically bunch up/model the complexity in the $\sigma$ parameter
+			- All of the "data", such as class priors and complicated likelihood functions are bundled in that fractional term in the denominator on line 1
 - **Example using Generative Probability**
 	- *Problem set-up*
 		- $\vec{x} \in \mathbb{R}^D$
@@ -88,15 +110,14 @@ $$
 \begin{aligned}
 P(c_{1}|\vec{x}) &= \alpha(\vec{\omega}^T \vec{x} +\omega_{0}) \\
 \vec{\omega} &= \Sigma^{-1}(\vec{\mu}_{1}-\vec{\mu}_{2}) \\
-\omega_{0} &=
+\omega_{0} &= -\frac{1}{2} \vec{\mu_{1}} \Sigma^{-1}\vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}} \Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
 \end{aligned}
 $$
-		- Need formula for omega from scanned notes
 - **Signal vs. Noise Example**
 	- *General formula*
 		- $$
 \begin{aligned}
-P(\rho | c_{1}) &= \alpha(\omega \rho + \omega_{0}) \\
+P(c_{1}| \rho) &= \sigma(\omega \rho + \omega_{0}) \\
 \omega &= \Sigma^{-1}(\vec{\mu}_{1} - \vec{\mu}_{2}) = A - 0 = A \\
 \omega_{0} &= -\frac{1}{2}A^2 +\ln \left[\frac{P(c_{1})}{P(c_{2})}\right]
 \end{aligned}
@@ -105,14 +126,14 @@ $$
 		- Let $P(c_{1}) = P(c_{2})$
 		- $$
 \begin{gather}
-P(c_{1} | \rho) = \alpha\left( A\rho - \frac{1}{2}A^2 \right)
+P(c_{1} | \rho) = \sigma\left( A\rho - \frac{1}{2}A^2 \right)
 \end{gather}
 $$
 		- Optimal $\rho_{*}$
-		- $$
+			- $$
 \begin{gather}
 A\rho_{*} - \frac{1}{2}A^2 = 0 \\
-p_{*} = \frac{A}{2}
+\rho_{*} = \frac{A}{2}
 \end{gather}
 $$
 	- 

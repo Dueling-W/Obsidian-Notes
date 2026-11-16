@@ -11,12 +11,26 @@ Course: #mth602
 *place links to full notes here*
 
 ## Notes
-- **Decision boundaries**
-	- *Example*
-		- X is a scalar random variable for height
-		- Classes: {"baby", "adult"}
-		- Idea is two histograms that are well separated
-		- There is some point (H*) that separates the two
+- **Simple decision boundary example**
+	- *Problem set-up*
+		- ![[Pasted image 20261110133442.png]]
+		- $x$ is a scalar random variable for a person's height
+			- Classes = {baby, adult}
+	- *Probabilistic set-up*
+		- Output $\vec{p} \in \mathbb{R}^2$
+		- $\vec{p} = (p_{\text{baby}}, p_{\text{adult}})$
+		- Example: $(0.99, .01)$
+	- *Discrimination set-up*
+		- Set a threshold $H^*$, where possible outputs are:
+			- $$
+\text{Output}: \{\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}, \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}\}
+$$
 		- $$
 \begin{gather}
 Classifier(X) = \\
@@ -26,38 +40,67 @@ Classifier(X) = \\
 \end{cases}
 \end{gather}
 $$
+	- *Linear discriminator*
+		- Use a linear discriminator function as the book does (5.1)
+		- $$
+\begin{gather}
+y(x) = x-H^* \\
+\text{baby if } \quad y\leq 0 \\
+\text{adult if} \quad y > 0
+\end{gather}
+$$
+- **Decision boundaries**
 	- *Expand to K=2 classes*
 		- $\vec{x} \in \mathbb{R}^D$, partition $\mathbb{R}^D$ using a D-1 dimensional hyperplane
-		- This is called the decision boundary
+			- This approach is called a linear discriminant
+			- E.g., if 1 dimensional space (points drawn), then the discriminator is 1-1 = 0, which is just a singular point
 		- Always D-1 dimensions --> 2-D (x,y) we get a line
 	- *Linear discriminant function*
 		- $$
 y(\vec{x}) = \vec{w}^T \vec{x} + w_{0} = \langle \vec{w}, \vec{x} \rangle + w_{0}
 $$
-		- First term --> vector weights
-		- $w_{0}$ is offset from boundary 
-		- Decision boundary = $$
-\{\vec{x}_{B}: y(\vec{x}) = 0\}
+			- First term --> vector weights
+		- $w_{0}$ --> offset from boundary 
+	- *Intuition for $\vec{w}, w_{0}$*
+		- Let $\omega_{0} = 0$ (special case)
+			- $$
+y(\vec{x}) = \vec{\omega}^T \vec{x}
 $$
-		- $$
+		- $\vec{x} = 0$ is on the surface, which means the surface goes through the origin
+			- ![[Pasted image 20261110134933.png|477]]
+		- If $\vec{x}_{B}$ on surface then:
+			- $$
+\begin{gather}
+\vec{\omega}^T \vec{x} = <\vec{\omega},\vec{x}> = 0  \\
+\implies \vec{\omega} \text{ is perpendicular to surface}
+\end{gather}
+$$
+		- Surface normal is defined by: 
+			- $$
+\hat{\omega} = \frac{\vec{\omega}}{\|\vec{\omega}\|_{2}}
+$$
+			- $\vec{\omega}$ determines the orientation of the surface
+		- ![[Pasted image 20261110135651.png]]
+		- Plane's distance from origin controlled by $\omega_{0}$
+			- $$
+\begin{aligned}
+y(\vec{x_{B}}) &= \vec{\omega}^T \vec{x_{B}} + \omega_{0} = 0 \\
+\vec{\omega}^T \vec{x_{B}} &= -\omega_{0} \\
+\text{Distance } &= \frac{\vec{\omega}^T \vec{x}_{B}}{\|\vec{\omega}\|_{2}} = -\frac{\omega_{0}}{\|\vec{\omega}\|_{2}}
+\end{aligned}
+$$
+			- Formula for signed distance based on surface orientation with $\hat{\omega}$
+				- $$
+\frac{y(x)}{\|\omega\|_{2}}
+$$
+			- The above formula tells you if you are above or below the decision surface, therefore: 
+				- $$
 y(\vec{x}) =
 \begin{cases}
-\text{Class 1}  & y \leq 0 \\
-\text{Class 2} & y > 0
+\text{Class 1}  & y \geq 0 \\
+\text{Class 2} & y < 0
 \end{cases}
 $$
-	- *Investigating $w_{0}$ parameter*
-		- Simple case: where $w_{0} = 0$, which means the decision boundary passes through the origin
-			- [insert picture of graph from scanned lecture notes]
-			1. Does it go through the origin?
-				1. Yes, $\vec{x} = (0, 0)$
-			2. Is $\vec{\omega}$ and $\hat{\omega} = \frac{\vec{\omega}}{\|\omega\|}$ perpendicular to the boundary?
-				1. Yes, but I don't know why exactly. used the angular brackets from before I think with the $y(\vec{x})$ formula
-		- Now, check when $\omega_{0} \neq 0$
-			- Formula becomes: $$
-y(\vec{x}) = \langle \vec{w}, \vec{x} \rangle + w_{0}
-$$
-			- \[need to turn image into notes]
 - **ROC and AUC**
 	- ROC = Receiver Operating Characteristic Curve
 	- x-axis: FPR (False Positive Rate)
@@ -70,7 +113,13 @@ $$
 \frac{TP}{TP+FN}
 $$
 		- Where FN = False Negative and TP = True Positive
-		- 
+	- *Example using signal/noise detection*
+		- ![[Pasted image 20261110141703.png|371]]
+		- Every ROC curve passes through two points:
+			- (0, 0) --> call nothing a signal
+			- (1, 1) --> call everything a signal
+		- Coin flip classifier predicts signal 50% of the time and no-signal 50% of the time 
+	- Area Under Curve (AUC) --> tries to capture threshold independent model performance
 
 
 

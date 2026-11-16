@@ -427,10 +427,260 @@ $$
 		- Similar to regular maximum likelihood, we first determine the parameter vector $\mathbf{w}_{ML}$ governing the mean, and then use that value to find the variance
 		- With the parameters w and $\sigma^2$ we can now make predictions for new values of $t$
 
+## Chapter 3
+
+#### 3.2 - The Multivariate Gaussian 
+- *Gaussian Intro*
+	- One dimensional Gaussian has $\mu$ mean and $\sigma^2$ variance:
+		- $$
+\mathcal{N}(x|\mu,\sigma^2) = \frac{1}{(2\pi \sigma^2)^{1/2}}\exp\left\{ -\frac{1}{2\sigma^2}(x-\mu)^2 \right\}
+$$
+	- For a D-dimensional vector $\mathbf{x}$ the multivariate Gaussian distribution takes the form
+		- $$
+\mathcal{N}(\mathbf{x}|\mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2\pi)^{D/2}} \frac{1}{|\mathbf{\Sigma}|^{1/2}}\exp\left\{ -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma^{-1}}(\mathbf{x}-\mathbf{\mu}) \right\}
+$$
+		- In this case, $\mathbf{\mu}$ is the D-dimensional mean vector, while $\mathbf{\Sigma}$ is the $D \times D$ covariance matrix, and det $\mathbf{\Sigma}$ denotes the determinant of $\mathbf{\Sigma}$
+- *Gaussian applications*
+	- Consider the sum of multiple random variables
+	- *Central limit theorem* tells us that the sum of random variables looks more and more like a Gaussian as the number of terms increase
+
+#### 3.2.1 Geometry of the Gaussian 
+- *Mahalanobis distance*
+	- Defined as the distance from $\mathbf{\mu}$ to $\mathbf{x}$ 
+	- Important: reduces to the Euclidean distance only when $\mathbf{\Sigma}$ is the identity matrix
+	- $$
+\Delta^2 = (\mathbf{x} - \mathbf{\mu})^T \mathbf{\Sigma}^{-1}(\mathbf{x} - \mathbf{\mu})
+$$
+- *Gaussian properties*
+	- Necessary for all the eigenvalues $\lambda_{i}$ of the covariance matrix to be strictly positive, otherwise the distribution cannot be properly normalized
+	- *Positive definite* --> a matrix whose eigenvalues are strictly positive
+	- *Positive semidefinite* --> all the eigenvalues are non-negative
+
+#### 3.2.2 Moments
+- *Expectation of $\mathbf{x}$* 
+	- $$
+\begin{aligned}
+\mathbb{E}[\mathbf{x}] &= \frac{1}{(2\pi)^{D/2}} \frac{1}{|\mathbf{\Sigma}|^{1/2}}\, \int \exp\left\{ -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma^{-1}}(\mathbf{x-\mathbf{\mu}}) \right\}\, \mathbf{x} \,dx \\ 
+&= \frac{1}{(2\pi)^{D/2}} \frac{1}{|\mathbf{\Sigma}|^{1/2}}\, \int \exp\left\{ -\frac{1}{2}\mathbf{z}^T \mathbf{\Sigma^{-1}}\mathbf{z} \right\}\, (\mathbf{z} +\mathbf{\mu}) \,dz
+\end{aligned}
+$$
+	- Changed variables using $\mathbf{z} = \mathbf{x} - \mathbf{\mu}$
+	- By taking the integral from $(-\infty, \infty)$, we get
+	- $$
+\mathbb{E}[\mathbf{x}] = \mathbf{\mu}
+$$
+- *Second order moment of the Gaussian*
+	- Group the $D^2$ second-order moments together given by $\mathbb{E}[x_{i}, x_{j}]$
+	- This can be grouped together to form the matrix $\mathbb{E}[\mathbf{x}\mathbf{x}^T]$
+	- By making using of symmetry, the second order moment can be written as
+		- $$
+\mathbb{E}[\mathbf{x}\mathbf{x}^T]=\mathbf{\mu}\mathbf{\mu^T} + \mathbf{\Sigma}
+$$
+	- For the 1-D case, we subtracted off the mean before taking the second moment. Similar case here, which gives us the *covariance* of a random vector $\mathbf{x}$ 
+		- $$
+\text{cov}[\mathbf{x}] = \mathbb{E}[(\mathbf{x}-\mathbb{E}[\mathbf{x}])(\mathbf{x}-\mathbb{E}[\mathbf{x}])^T]
+$$
+	- For a Gaussian distribution, make use of $\mathbb{E}[\mathbf{x}] = \mathbf{\mu}$ and result (3.46) from the book to give
+		- $$
+\text{cov}[\mathbf{x}] = \mathbf{\Sigma}
+$$
+	- Thus, this is why we call $\mathbf{\Sigma}$ the covariance matrix
+
+#### 3.2.7 Maximum likelihood
+- *Problem set-up*
+	- Given a data set $\mathbf{X} = (\mathbf{x_{1}, \mathbf{x_{2}, \dots, \mathbf{x_{N}}}})^T$ in which the observations $\{\mathbf{x_{n}}\}$ are assumed to be drawn independently from a multivariate Gaussian distribution...
+	- Estimate the parameters of the distribution through maximum likelihood
+- *Maximum likelihood*
+	- Log likelihood function is given by
+		- $$
+\ln p(\mathbf{X}|\mathbf{\mu}, \mathbf{\Sigma}) = -\frac{ND}{2}\ln(2\pi)-\frac{N}{2}\ln|\mathbf{\Sigma}|-\frac{1}{2} \sum^N_{n=1}(\mathbf{x_{n}-\mathbf{\mu}})^T \mathbf{\Sigma}^{-1}(\mathbf{x_{n}-\mathbf{\mu}})
+$$
+	- By rearrangement and distributive property, see that the likelihood function is only connected to the dataset through two quantities
+		- $$
+\sum^N_{n=1}\mathbf{x_{n}} \qquad \sum^N_{n=1}\mathbf{x_{n}}\mathbf{x_{n}}^T
+$$
+		- These are known as the *sufficient statistics* for the Gaussian distribution
+	- Derivatives for maximum likelihood
+		- w.r.t. $\mathbf{\mu}$
+			- $$
+\begin{aligned}
+\frac{\partial}{\partial \mathbf{\mu}} = \ln p(\mathbf{X}|\mathbf{\mu}, \mathbf{\Sigma}) &= \sum^N_{n=1} \mathbf{\Sigma}^{-1}(\mathbf{x_{n}}-\mathbf{\mu}) \\
+\mathbf{\mu_{ML}} &= \frac{1}{N}\sum^N_{n=1}\mathbf{x_{n}}
+\end{aligned}
+$$
+		- w.r.t. $\mathbf{\Sigma}$ is more complicated.., but solution is
+			- $$
+\mathbf{\Sigma_{ML}} = \frac{1}{N}\sum^N_{n=1} (\mathbf{x_{n}-\mathbf{\mu_{ML}}})(\mathbf{x_{n}-\mathbf{\mu_{ML}}})^T
+$$
+- *Expectation of maximum likelihood and bias*
+	- Evaluate the expectation of the maximum likelihood under the true distribution
+	- $$
+\begin{aligned}
+\mathbb{E}[\mathbf{\mu_{ML}}] \quad &= \quad \mathbf{\mu} \\ 
+\mathbb{E}[\mathbf{\Sigma_{ML}}] \quad &= \quad \frac{N-1}{N}\mathbf{\Sigma}
+\end{aligned}
+$$
+	- See that the expectation of the maximum likelihood estimate for the mean --> equal to the true mean
+	- Maximum likelihood estimate for covariance --> less than the true value, so, it is biased
+
+#### 3.2.9 Mixtures of Gaussians
+- *Introduction*
+	- Gaussian suffers from limitations when used to model real data sets
+	- ![[Pasted image 20261109091457.png|572]]
+	- Consider the above case
+		- Dataset --> 'Old Faithful' geyser in Yellowstone with 272 measurements 
+		- Each measurement gives the duration of the eruption in minutes (horizontal axis) and the time in minutes to the next eruption (vertical axis)
+		- Two dominant clumps, and figure (a) is unable to capture this structure
+		- Figure (b) is known as a *mixture distribution* and does a much better job at capturing the dataset
+- *Formal definitions*
+	- Consider a superposition of $K$ Gaussian densities of the form
+		- $$
+p(\mathbf{x}) = \sum^K_{k=1}\pi_{k}\mathcal{N}(\mathbf{x}|\mathbf{\mu_{k}}, \mathbf{\Sigma_{k}})
+$$
+		- This is called a *mixture of Gaussians*
+	- Each Gaussian density $\mathcal{N}(\mathbf{x}|\mathbf{\mu_{k}}, \mathbf{\Sigma_{k}})$
+		- Called a *component* of the mixture
+		- Has its own mean $\mu_{k}$ 
+		- Has its own covariance $\mathbf{\Sigma_{k}}$
+	- Parameters $\pi_{k}$ are called *mixing coefficients*
+		- Given that the individual Gaussian components and $p(\mathbf{x})$ are both normalized..
+			- $$
+\sum^K_{k=1}\pi_{k} = 1
+$$
+		- Also, given that $\mathcal{N}(\mathbf{x}|\mathbf{\mu_{k}}, \mathbf{\Sigma_{k}}) \geq 0$, combine this with the prior equation to get
+			- $$
+0 \leq \pi_{k} \leq 1
+$$
+- *Writing as sum/product rule*
+	- $$
+p(\mathbf{x}) = \sum^K_{k=1}p(k)p(\mathbf{x}|k)
+$$
+	- Relating to the original equation, we find that
+		- $\pi_{k} = p(k)$, which is the prior probability of picking the kth component
+		- $\mathcal{N}(\mathbf{x}|\mathbf{\mu_{k}}, \mathbf{\Sigma_{k}}) = p(\mathbf{x}|k)$, which is the probability of data $\mathbf{x}$ conditioned on component k
+	- More details are given on page 88
+- *Log likelihood of Gaussian mixture model*
+	- Gaussian mixture distribution is governed by the parameters $\mathbf{\pi, \mu, \Sigma}$, where:
+		- $$
+\begin{gather}
+\mathbf{\pi} = \{\pi_{1}, \dots, \pi_{K}\} \\
+\mathbf{\mu} = \{\mathbf{\mu_{1}, \mu_{2}, \dots, \mu_{K}}\} \\
+\mathbf{\Sigma} = \{\mathbf{\Sigma_{1}, \dots, \mathbf{\Sigma_{K}}}\}
+\end{gather}
+$$
+	- The log likelihood can be given by
+		- $$
+\ln p(\mathbf{X}|\mathbf{\pi}, \mathbf{\mu, \Sigma}) = \sum^N_{n=1}\ln\left\{ \sum^K_{k=1}\pi_{k}\mathcal{N}(\mathbf{x_{n}} |\mathbf{\mu_{k}, \mathbf{\Sigma_{k}}}) \right\}
+$$
+		- Note that the maximum likelihood solution for the parameters no longer has a closed-form solution
 
 
+## Chapter 4 
 
+#### Chapter 4.1.6 Regularized Least Squares
+- *Introduction*
+	- Idea --> add a regularization term to an error function to control over-fitting
+		- $$
+E_{D}(\mathbf{w}) + \lambda E_{W}(\mathbf{w})
+$$
+		- here, $\lambda$ is the regularization coefficient that controls the importance of the $E_{W}$ term 
+- *Sum of squares*
+	- One of the simplest forms --> sum of the squares of the weight vector elements:
+		- $$
+E_{W}(\mathbf{w}) - \frac{1}{2}\sum_{j}w^2_{j} = \frac{1}{2}\mathbf{w}^T\mathbf{w}
+$$
+	- Then we can also apply the classic sum-of-squares error function [^1]:
+		- $$
+E_{D}(\mathbf{w})=\frac{1}{2}\sum^N_{n=1}\{t_{n}-\mathbf{w}^T \mathbf{\phi}(\mathbf{x_{n}})\}^2
+$$
+	- Then, the total error function becomes:
+		- $$
+\frac{1}{2}\sum^N_{n=1}\{t_{n}-\mathbf{w}^T \mathbf{\phi}(\mathbf{x_{n}})\}^2 + \frac{\lambda}{2}\mathbf{w}^T \mathbf{w}
+$$
+- *Error interpretation*
+	- Regularizer --> example of *parameter shrinkage* because the parameter vector $\mathbf{w}$ gets shrunk towards zero
+	- The regularized least squares solution still has a closed form solution [^2]
+		- Obtained by setting the gradient of the above equation with respect to $\mathbf{w}$ to zero and solving:
+		- $$
+\mathbf{w} = (\lambda I+\Phi^T \Phi)^{-1}\Phi^T\mathbf{t}
+$$
+
+#### Chapter 4.3 Bias-Variance Trade-off
+- *Introduction*
+	- To avoid overfitting --> limit the number of basis functions (degrees of freedom of the model)
+	- This has the side effect of limiting the flexibility of the model to capture interesting and important trends in the data
+	- So, how to determine a suitable value for $\lambda$?
+	- Consider a frequentist viewpoint of the mode complexity --> known as the *bias-variance* trade-off
+- *Loss function definition*
+	- Expected squared loss can be written in the form:
+		- $$
+\mathbb{E}[L] = \int\{f(\mathbf{x}-h(\mathbf{x}))\}^2 p(\mathbf{x})\,d\mathbf{x} + \int \int\{h(\mathbf{x})-t\}^2p(\mathbf{x}, t)\,d\mathbf{x}\,dt
+$$
+	- The second term is independent of our chosen function $f(\mathbf{x})$
+		- It arises from the intrinsic noise on the data
+		- So, it is the minimum achievable value of the expected loss
+	- The first term actually does depend on our function choice
+		- So --> seek a solution for $f(\mathbf{x})$ that makes this first term a minimum
+	- What are we limited by?
+		- In practice, we are limited by a dataset $D$ containing only a finite number $N$ data points
+		- So, we can't know the true regression function $h(\mathbf{x})$ exactly
+- *Bias and variance*
+	- Idea --> find an average performance
+		- Assume a large number of data sets, each of size $N$, where each is drawn independently from the distribution $p(t, \mathbf{x})$
+		- For any given data set $D$ we can run our learning algorithm and obtain a predictive function for that dataset: $f(\mathbf{x};D)$
+		- Different data sets will result in different functions and different values for the loss
+		- Performance of a particular learning algorithm --> assessed by taking the average over this ensemble of data sets
+	- To find the expectation of the expression with respect to $D$, we get: (*note, more details on page 125*)
+		- $$
+\begin{aligned}
+\mathbb{E}_{D} &[\{f(\mathbf{x};D)-h(\mathbf{x})\}^2] \\
+= \, &\{\mathbb{E}_{D}[f(\mathbf{x}; D)] -h(\mathbf{x})\}^2 + \mathbb{E}_{D}[\{f(\mathbf{x};D)-\mathbb{E}_{D}[f(\mathbf{x};D)]\}^2]
+\end{aligned}
+$$
+		- The term to the left of the $+$ is the $\text{bias}^2$, while the term to the right is simply the variance
+	- Definitions:
+		- Squared *bias* --> represents the extent to which the average prediction over all data sets differs from the desired regression function
+		- *Variance* --> measures the extent to which the solutions for individual data sets vary around their average
+	- Loss formula:
+		- $$
+\text{expected loss} = (\text{bias})^2 + \text{variance} + \text{noise}
+$$
+		- Full formulas on page 125
+- *Problem example*
+	- Set-up:
+		- Goal is to minimize the expected loss
+		- 100 independently generated data sets, each one containing $N = 25$ data points from the underlying regression curve $h(x) = \sin(2\pi x)$
+		- Data sets are indexed by $l = 1, \dots, L$, where L = 100
+		- For each dataset, a model is fit with $M = 24$ Gaussian basis functions along with a constant bias function, $\lambda$ to give 25 parameters
+	- Trade-off between bias and variance:
+		- Very flexible models --> low bias and high variance
+		- Rigid models --> high bias and low variance
+		- Optimal model --> the one that leads to the best balance between bias and variance
+	- ![[Pasted image 20261110120310.png|569]]
+		- Top row:
+			- Large value of the regularization coefficient $\lambda$ that vies low variance (because the red curves in the left plot look similar)
+			- But high bias (because the red average and the green curve are very different)
+			- This is because the weights are heavily penalized, resulting in a simpler model
+		- Bottom row:
+			- Small value of the regularization coefficient 
+			- Large variance --> high variability between the red curves in the left plot
+			- Low bias --> shown by the good fit between the average model fit and the original sinusoidal function 
+		- This generally suggests that averaging may be a beneficial procedure because of how good the fit is
+- *Formal definitions*
+	- The average prediction is estimated from:
+		- $$
+\bar{f}(x) = \frac{1}{L}\sum^L_{l=1}f^{(l)}(x)
+$$
+	- The integrated squared bias and integrated variance are then given by:
+		- $$
+\begin{aligned}
+(\text{bias})^2 &= \frac{1}{N}\sum^N_{n=1}\{\bar{f}(x_{n})-h(x_{n})\}^2 \\
+\text{variance} &= \frac{1}{N}\sum^N_{n=1} \frac{1}{L}\sum^L_{l=1}\{f^{(l)}(x_{n})-\bar{f}(x_{n})\}^2
+\end{aligned}
+$$
 
 
 
 [^1]: Note: the textbook uses x for the input and t for the target. In class, we use t for the input and y for the target.
+
+[^2]: Notation: textbook uses $\Phi$ for $A$ and $\mathbf{t}$ for $\vec{y}$

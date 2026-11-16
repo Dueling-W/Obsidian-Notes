@@ -1,4 +1,33 @@
 
+## 2026.11.12 Meeting
+- Make sure figures are significantly different from prior papers
+	- Look to revised Figure 1 as an example
+- Need to create algorithms (target 2-3)
+	- 2 algorithms --> triggered retraining with KSWIN and real-time training of LSTM models
+	- Possible 3rd algorithm --> specifically just for KSWIN
+- Case study count --> 3 (similar to prior papers)
+	- 1 --> accuracy comparison with a table, look to journal paper for inspiration
+	- 2 --> show that it can follow the seasonal trends in winter-time to spring (November --> March/April)
+		- March/April to show the fall-off
+		- November to show the rise to winter-time
+	- 3 --> cost comparison
+		- E.g., real-time training every day takes 280 updates, while our approach only uses 10
+- Problems with dataset
+	- Day-to-day is not time series currently
+		- Current approach basically takes total for a season (e.g., summer) and splits that total up amongst all days randomly
+	- Fix it with simulations
+		- Get true flu/pneumonia trends month-to-month from a different dataset for the entire nation/New England region
+		- Model the trend line based on that data
+			- Example: during summer basically flat, then, starts rising in November to early December
+			- Flu season: flat and high # of admissions during winter
+			- Then, starts to fall off during March
+		- Day-to-day should have some level of noise (just like what we had in the visibility paper)
+- Paper targets (timeline)
+	- Next meeting (November 19th) --> experimental results with improved time series dataset using simulation-based approach
+	- Week after (Thanksgiving) --> first complete paper draft
+	- Thanksgiving (Nov. 26) through December 7th --> paper revisions, hopefully submit before final exams
+- Meeting same time next week 
+
 ## 2026.11.05 Meeting
 - 9 credits next week due to TA work
 	- Classes --> EAS 602, EAS 602/700 (seminar + ethics), EAS 601 (research)
