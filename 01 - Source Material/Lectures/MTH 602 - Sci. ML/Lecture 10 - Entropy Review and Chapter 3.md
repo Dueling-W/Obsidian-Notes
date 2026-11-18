@@ -149,6 +149,7 @@ $$
 \mathrm{Cov}(\vec{x}) = \Sigma
 $$
 	- Same idea as the 1D check: the $\Sigma$ parameter is the covariance matrix
+	- 
 
 
 ## Questions/Gaps/Concerns
