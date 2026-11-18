@@ -66,9 +66,10 @@ $$
 			- Applied the symmetry of joint probability rule:
 				- $P(A, B) = P(B, A)$
 		- Normalization: $$
-\sum_{k=1}^K = P(c_{k}|\vec{x}) = 1
+\sum_{k=1}^KP(c_{k}|\vec{x}) = 1
 $$
 			- Sum over all of the classes needs to equal 1
+			- For a given k --> probability of class $c_{k}$ given your input data $\vec{\mathbf{x}}$
 		- Now by substitution, we can get: $$
 P(c_{k}|\vec{x}) = \frac{P(\vec{x}|c_{k})P(c_{k})}{\sum_{K}P(\vec{x}|c_{k})P(c_{k})}
 $$
@@ -79,7 +80,7 @@ $$
 			- The first term in the numerator is the likelihood, while $P(c_{1})$ is the prior on classes
 			- Finding likelihood --> either specify with known form, use maximum likelihood, or fit for it algorithmically (e.g. Gaussian Mixture Models)
 	- *Logistic regression with 2-class case*
-		- Idea behind logistic regression formula --> bundle data complexity ("data" and likelihood functions) in a singular parameter, called $\sigma$
+		- Idea behind logistic regression formula --> bundle data complexity ("data" and likelihood functions) in a singular parameter
 		- Formulation:
 			- $$
 \begin{aligned}
@@ -90,10 +91,10 @@ P(c_{1}|\vec{\mathbf{x}}) &= \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\ma
 $$
 		- Also, the probability for class 2 given our data $\vec{\mathbf{x}}$ can be found easily by subtraction:
 			- $$
-P(c_{2}|\vec{\mathbf{x}}) = 1-P(c_{1}|\vec{\mathbf{x}}) = 1 -\mathbf{\sigma}(\sigma) = \sigma(-\sigma)
+P(c_{2}|\vec{\mathbf{x}}) = 1-P(c_{1}|\vec{\mathbf{x}}) = 1 -\mathbf{\sigma}(\alpha) = \sigma(-\alpha)
 $$
 		- Lastly, note that log(1) = 0 and $\sigma(0) = \frac{1}{2}$
-		- This specifically works because there are two classes, and you basically bunch up/model the complexity in the $\sigma$ parameter
+		- This specifically works because there are two classes, and you basically bunch up/model the complexity in the $\alpha$ parameter
 			- All of the "data", such as class priors and complicated likelihood functions are bundled in that fractional term in the denominator on line 1
 - **Example using Generative Probability**
 	- *Problem set-up*
@@ -108,7 +109,7 @@ $$
 	- *Writing as a logistic function*
 		- $$
 \begin{aligned}
-P(c_{1}|\vec{x}) &= \alpha(\vec{\omega}^T \vec{x} +\omega_{0}) \\
+P(c_{1}|\vec{x}) &= \sigma(\vec{\omega}^T \vec{x} +\omega_{0}) \\
 \vec{\omega} &= \Sigma^{-1}(\vec{\mu}_{1}-\vec{\mu}_{2}) \\
 \omega_{0} &= -\frac{1}{2} \vec{\mu_{1}} \Sigma^{-1}\vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}} \Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
 \end{aligned}
@@ -124,6 +125,7 @@ P(c_{1}| \rho) &= \sigma(\omega \rho + \omega_{0}) \\
 $$
 	- *Specific case*
 		- Let $P(c_{1}) = P(c_{2})$
+		- Note that $\ln(1) = 0$
 		- $$
 \begin{gather}
 P(c_{1} | \rho) = \sigma\left( A\rho - \frac{1}{2}A^2 \right)
