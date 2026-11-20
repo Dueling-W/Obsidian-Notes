@@ -1,4 +1,23 @@
 
+## 2026.11.19 Meeting
+- Move around sections for a Section IV dedicated to drift detection
+	- Makes paper more clear
+	- The current sub-sections in Section V will be moved around in the paper
+		- Dataset descriptions --> case study 
+		- Parameter fine-tuning will go into their own section (tuning for LSTM and tuning for CUSUM)
+- Case study sections:
+	- Section 1 --> Dataset
+	- Section 2 --> Drift detection (show a graph with CUSUM scoring against time) and mark when alarms were fired with a vertical line
+	- Section 3 --> present accuracy of our triggered model against the static one, show much better accuracy during the winter months
+	- Section 4 --> training comparison by # of days with constant real-time training approach
+		- Compare accuracy, expect constant to be slightly better, but they both should be comparable in accuracy
+		- Then a separate table showing training days per season
+			- E.g., constant will train every day in Fall, while triggered will train 0 days
+- Paper timeline:
+	- End of day on Friday --> send over completed Section 4 (drift with algorithm)
+	- Work Monday/Tuesday/Wednesday on rest of draft --> finishing up remaining Section 5, Case Study and parameter fine-tuning work
+- No meeting next week
+
 ## 2026.11.12 Meeting
 - Make sure figures are significantly different from prior papers
 	- Look to revised Figure 1 as an example
