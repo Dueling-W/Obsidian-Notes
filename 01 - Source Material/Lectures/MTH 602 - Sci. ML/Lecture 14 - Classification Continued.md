@@ -75,6 +75,14 @@ $$
 \implies \vec{\omega} \text{ is perpendicular to surface}
 \end{gather}
 $$
+		- General case ($\omega_{0} \neq 0$): take any two points $\vec{x}_{A}, \vec{x}_{B}$ on the surface
+			- $$
+\begin{gather}
+\vec{\omega}^T \vec{x}_{A} + \omega_{0} = 0 = \vec{\omega}^T \vec{x}_{B} + \omega_{0} \\
+\implies \vec{\omega}^T (\vec{x}_{A} - \vec{x}_{B}) = 0
+\end{gather}
+$$
+			- $\vec{x}_{A} - \vec{x}_{B}$ lies along the surface, so $\vec{\omega}$ is perpendicular to the surface for any $\omega_{0}$
 		- Surface normal is defined by: 
 			- $$
 \hat{\omega} = \frac{\vec{\omega}}{\|\vec{\omega}\|_{2}}

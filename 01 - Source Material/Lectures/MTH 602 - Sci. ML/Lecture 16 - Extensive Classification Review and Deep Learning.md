@@ -91,6 +91,22 @@ $$
 			- What is the interpretation of -1/2?
 				- This means that you will have arrows pointing to the left, since $\vec{\omega}$ is normal to the decision surface
 				- "Above" means to the left of the decision surface/line (positive), and "below" means to the right of the decision surface/line (negative)
+	- *Different covariances: $\Sigma_{1} \neq \Sigma_{2}$ (scan Ch. 5 p. 14, Fig. 5.14)*
+		- The $\vec{\mathbf{x}}^T\Sigma_{k}^{-1}\vec{\mathbf{x}}$ terms no longer cancel in $\alpha$, so $\alpha$ is quadratic in $\vec{\mathbf{x}}$
+			- $$
+P(c_{1}|\vec{\mathbf{x}}) = \sigma\left(\vec{\mathbf{x}}^T \mathbf{M} \vec{\mathbf{x}} + \vec{b}^T \vec{\mathbf{x}} + c\right) \implies \text{quadratic (curved) decision boundary}
+$$
+		- 1D case with equal priors (practice Q2): log-likelihood ratio
+			- $$
+\begin{gather}
+\ell(x) = \ln\left[ \frac{P(x|c_{1})}{P(x|c_{0})} \right] = ax^2 + bx + c \\
+a = \frac{1}{2\sigma_{0}^2} - \frac{1}{2\sigma_{1}^2}, \quad b = \frac{\mu_{1}}{\sigma_{1}^2} - \frac{\mu_{0}}{\sigma_{0}^2}, \quad c = \frac{\mu_{0}^2}{2\sigma_{0}^2} - \frac{\mu_{1}^2}{2\sigma_{1}^2} + \ln\frac{\sigma_{0}}{\sigma_{1}}
+\end{gather}
+$$
+			- $a = 0$ (equal variances) --> linear equation, one threshold
+			- $b^2 - 4ac > 0$ --> two thresholds (narrow class in the middle, wide class on both sides)
+			- $b^2 - 4ac < 0$ --> no threshold, one class wins everywhere
+			- Identical distributions --> $\ell(x) = 0$ for all x, so the priors alone decide
 	- *Benefits of generative models*
 		- Reverse Bayes' rule --> $P(x | \text{class})$
 			- Generate sythentic data from the class
@@ -99,16 +115,35 @@ $$
 			- If risk/loss changes over time
 		- Combine hetergeneous datasets more easily
 - **Deep learning introduction**
-	- Modeling
-		- Writing down a model (refer to prior notes), now we have a nonlinear model of many parameters 
-	- Residual and minimizing the residuals
-		- In linear case, we had the residual function and we just minimized that
-		- Now, we need a numerical optimization
-- **Curse of dimensionality**
-	- Both the number of learnable parameters and needed data points explodes as you move into higher dimensional space
-	- But, deep learning can find hidden sparsity
-		- Example --> looking for cat images in a 64x64x3 space (RGB),but the actual cat image exists in a lower dimensional version of that space
+	- *Familiar in some ways...*
+		- Same ML tasks like regression/classification
+		- Writing down a model (refer to prior notes)
+		- Write down a cost function like $\|\vec{y}-y_{\text{model}}(\vec{t};\vec{\omega})\|_{2}^2$
+		- Minimize cost function for solution $\vec{\omega}_{\text{opt}}$
+	- *Different in other ways...*
+		- Still some kind of parameterized model, but typically very large and nonlinear
+		- Optimizing for the parameters typically requires high performance computing
+	- *Curse of dimensionality*
+		- Why do we even need large non-linear models?
+		- If $\vec{\mathbf{x}} \in \mathbb{R}^D$, then degree M polynomial has $D^M$ coefficients
+			- Optimal weights live in: $\vec{\omega} \in \mathbb{R}^{D^M}$ space
+		- Not only does the weight space explode, but the pure number of data points themselves do as well:
+			- If you need 100 points to sample a function in 1D...
+				- you need $100^{17}$ in 17D
+		- ![[Pasted image 20261120090600.png]]
+	- *Hidden sparsity in deep learning*
+		- Data often "lives" in a lower dimensional space/data manifold
+			- Image will be something like: $A \in \mathbb{R}^{N \times N}$, resulting in $N^2$ degrees of freedom
+			- But images of interest to humans are much lower dimensional
+			- This is because the images themselves have high correlations between the pixels, it isn't just random
+			- Example below showing the fundamental difference between the entire, random image space and natural images
+			- ![[Pasted image 20261120090931.png|449]]
 		- You don't have to tell a deep learning model that specific lower dimensional space, it can find it
+		- Netflix challenge example:
+			- F(Data) --> lower dimensional "feature space"
+			- Data itself is a combination of all users on Netflix/shows/movies/etc. (very high-D)
+			- But, the challenge winners showed that you can relate users in with only a few shows/movies
+	- Conclusions: many classical algorithms exist for these problems... but some problems can really only be solved well using deep learning models
  
 ## Questions/Gaps/Concerns
 

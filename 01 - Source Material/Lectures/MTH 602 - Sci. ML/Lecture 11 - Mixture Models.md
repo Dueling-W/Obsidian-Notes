@@ -23,22 +23,25 @@ $$
 		- Introduced in Q(x) to help simplify things now
 	- Covariance of a vector x
 		- $$
-\begin{gather} \\
+\begin{gather}
 \mathrm{Cov}(\vec{x}) \equiv \mathbb{E}\Big[(\vec{x} - \mathbb{E}[\vec{x}]) \otimes (\vec{x} - \mathbb{E}[\vec{x}])\Big] \\
-
-=\mathbb{E}[\vec{x} \otimes \vec{x}] = \mathbb{E}[\begin{pmatrix}
+= \mathbb{E}[\vec{x} \otimes \vec{x}] - \vec{\mu} \otimes \vec{\mu} = \Sigma
+\end{gather}
+$$
+			- Example in 2D with $\vec{\mu} = 0$ and unit variances:
+				- $$
+\mathbb{E}\left[\begin{pmatrix}
 x^2 & xy \\
 yx & y^2
-\end{pmatrix}] = \begin{pmatrix}
-1 & Cov(xy) \\
-Cov(yx) & 1
+\end{pmatrix}\right] = \begin{pmatrix}
+1 & Cov(x,y) \\
+Cov(y,x) & 1
 \end{pmatrix}
-\end{gather}
 $$
 		 - This is used to understand how covariance works between x and y:
 		 - ![[Pasted image 20261014112150.png|485]]
  - **More intuition on Q**
-	 - $Q(\vec{x})$ is called the Mahalonis distance
+	 - $Q(\vec{x})$ is called the Mahalanobis distance
 	 - Kind of looks like L2-norm, but not quite
 	 - Look at a special case: **D = 2**
 		 - $$
@@ -87,7 +90,7 @@ $$
 \begin{gather}
 \vec{\mu_{ML}}, \Sigma = \max_{\vec{\mu}, \Sigma} P(\mathbf{\vec{\vec{x}}} | \vec{\mu}, \Sigma) = \dots \text{see book} \\
 \vec{\mu}_{ML} = \frac{1}{N} \sum^N_{i=1} \vec{x}_{i} \\
-\Sigma_{ML} = \frac{1}{N} \sum^N_{i=1} (\vec{x}_{i} - \vec{\mu}_{ML})\otimes(\vec{x}_{i} - \mu_{ML})
+\Sigma_{ML} = \frac{1}{N} \sum^N_{i=1} (\vec{x}_{i} - \vec{\mu}_{ML})\otimes(\vec{x}_{i} - \vec{\mu}_{ML})
 \end{gather}
 $$
 		- These are estimates for each parameter; good question to ask: how good are our estimates?
@@ -105,6 +108,7 @@ $$
 	- $$
 P(\vec{x}) = \sum^K_{i=1}\Pi_{i}P_{i}(\vec{x}) = \sum^K_{i=1}P(\vec{x}|i)P(i)
 $$
+	- Mixing weights: $0 \leq \pi_{k} \leq 1$ and $\sum_{k=1}^K \pi_{k} = 1$
 	- View as a conditional probability
 		- $P(k)$ = prior component k
 		- $P(\vec{x} | k)$ = probability of $\vec{x}$ from component $k$
@@ -130,10 +134,10 @@ $$
 &\text{Make N observations of } \vec{x} \\ 
 &\qquad \vec{\vec{x}} = (\vec{x}_{1}, \vec{x}_{2}, \dots, \vec{x}_{N})\\
 &\text{Form the likelihood function} \\
-&\qquad L(\vec{\theta}_{*}, \vec{\pi}_{*}) = \prod^N_{i=1} P(\vec{x} = \vec{x}_{i} | \vec{\theta}, \vec{\pi}) \\
+&\qquad L(\vec{\theta}, \vec{\pi}) = \prod^N_{i=1} P(\vec{x} = \vec{x}_{i} | \vec{\theta}, \vec{\pi}) \\
 &\qquad P(\vec{x} = \vec{x}_{i} | \vec{\theta}, \vec{\pi}) = \sum^K_{k=1} \pi_{k} \, \mathcal{N}(\vec{x} = \vec{x}_{i} | \vec{\mu}_{k}, \Sigma_{k}) \\
 &\text{Maximize the function} \\
-&\qquad \max_{\vec{\theta}_{*}, \vec{\pi}} L(\vec{\theta}, \vec{\pi})
+&\qquad \max_{\vec{\theta}, \vec{\pi}} L(\vec{\theta}, \vec{\pi})
 \end{aligned}
 $$
 

@@ -64,7 +64,7 @@ $$
 $$
 	- Parameterized by...
 		- $\vec{\mu}$ is a D-dimensional vector of means
-		- $\Sigma \in \mathbb{R}^{D \times D}$ is the covariate matrix
+		- $\Sigma \in \mathbb{R}^{D \times D}$ is the covariance matrix
 	- Facts about $\mathcal{N}(\vec{x} | \vec{\mu}, \Sigma)$
 		- Check for normalization:
 			- $$
@@ -75,7 +75,7 @@ $$
 		- Check the expectation value of $\vec{x}$:
 			- $$
 \begin{gather}
-E[\vec{x}] = \int \vec{x}\mathcal{N}(\vec{x}|\vec{\mu}, \Sigma) \, d \vec{x} =  \vec{u} \\
+E[\vec{x}] = \int \vec{x}\mathcal{N}(\vec{x}|\vec{\mu}, \Sigma) \, d \vec{x} =  \vec{\mu} \\
 \text{where: } \vec{x} \sim \mathcal{N}(\vec{\mu}, \Sigma)
 \end{gather}
 $$
@@ -131,19 +131,22 @@ $$
 	- Multivariate version of variance, using the outer product:
 	- Diagonal elements of covariance matrix is just the variance of $x_{i}$
 	- $$
-\begin{gather} \\
+\begin{gather}
 \mathrm{Cov}(\vec{x}) \equiv \mathbb{E}\Big[(\vec{x} - \mathbb{E}[\vec{x}]) \otimes (\vec{x} - \mathbb{E}[\vec{x}])\Big] \in \mathbb{R}^{D \times D} \\
-
-=\mathbb{E}[\vec{x} \otimes \vec{x}] = \mathbb{E}[\vec{x} \otimes \vec{x}] - \mu \otimes \mu =  \mathbb{E}\left[\begin{pmatrix}
+= \mathbb{E}[\vec{x} \otimes \vec{x}] - \vec{\mu} \otimes \vec{\mu}
+\end{gather}
+$$
+		- Example in 2D with $\vec{\mu} = 0$ and unit variances (the diagonals are variances):
+			- $$
+\mathrm{Cov}(\vec{x}) = \mathbb{E}\left[\begin{pmatrix}
 x^2 & xy \\
 yx & y^2
 \end{pmatrix}\right] = \begin{pmatrix}
-1 & Cov(xy) \\
-Cov(yx) & 1
+1 & Cov(x,y) \\
+Cov(y,x) & 1
 \end{pmatrix}
-\end{gather}
 $$
-		- Middle step above only holds when $\mu = 0$ and variance = 1 (since the diagonals are variances)
+		- Diagonal entries --> $Var(x_{j})$
 - **Fact 3:** for $\vec{x} \sim \mathcal{N}(\vec{x} \mid \vec{\mu}, \Sigma)$, D-dimensional Gaussian case,
 $$
 \mathrm{Cov}(\vec{x}) = \Sigma

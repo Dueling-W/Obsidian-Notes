@@ -31,7 +31,7 @@ $$
 \end{pmatrix}
 $$
 		- Ignore certain weights by index, such as ignore y-intercept
-			- y-intercept: $\omega_{0}$ is often small anyway
+			- y-intercept $\omega_{0}$ only shifts the curve up or down, so penalizing it would pull the fit toward zero for no reason
 			- $$
 \begin{pmatrix}
 0 & 0 & 0 \\
@@ -43,7 +43,7 @@ $$
 		- $$
 J(\vec{w}) = \|\vec{y}-A \vec{w}\|_{2}^2+ \lambda\|\vec{w}\|_{p}^p \quad \lambda \geq 0
 $$
-		- If $p = 1$ --> Lasso regression, gives spare weights
+		- If $p = 1$ --> Lasso regression, gives sparse weights
 		- If $p = 0$ --> $\|\vec{\omega}\|_{0}$ = # of non-zero entries of $\omega$
 	- Quick regularization summaries 
 		1. $\|\vec{w}\|_{2}^2$ is weight decay, ridge regression, tikhonov regularization 
@@ -70,10 +70,10 @@ $$
 		- On Average, how close is $y^l$ to ground truth signal $s(t)$
 			- $$
 \begin{aligned}
-\text{Average model} &=  \vec{y(t)} = \frac{1}{L}\sum^L_{l=1}y^l(t:\vec{w}^l) \\
-\text{Model bias} &= \frac{1}{T}\int^{t_{N}}_{t_{1}}[\vec{y(t)}-s(t)]^2\,dt \\
-&= \frac{1}{N} \sum^N_{i=1}[\vec{y(t_{i})}-s(t_{i})]^2 \\
-&= \frac{1}{N}\|\vec{y}(\vec{t})-s(\vec{t})\|_{2}^2 \quad \text{L2 norm}
+\text{Average model} &=  \bar{{y(t)}} = \frac{1}{L}\sum^L_{l=1}y^l(t:\vec{w}^l) \\
+\text{Model bias} &= \frac{1}{T}\int^{t_{N}}_{t_{1}}[\bar{{y(t)}}-s(t)]^2\,dt \\
+&\approx \frac{1}{T}(\Delta t) \sum^N_{i=1}[\bar{{y(t_{i})}}-s(t_{i})]^2 \\
+&= \frac{1}{N}\|\bar{{y}}(\vec{t})-s(\vec{t})\|_{2}^2 \quad \text{L2 norm}
 \end{aligned}
 $$
 			- This result depends on $\lambda$ 

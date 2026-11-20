@@ -40,12 +40,11 @@ $$
 		- Check: on the surface to find $\omega_{0}$
 			- $$
 \begin{aligned}
-y((1,0)) &= 0 \\
-&= (1,0)\begin{pmatrix}
+y((1,0)) &= (1,0)\begin{pmatrix}
 1 \\
 0
-\end{pmatrix} = 1 \qquad {\text{dot product}} \\
-&= 1 + \omega_{0} \\
+\end{pmatrix} + \omega_{0} \qquad \text{(dot product = 1)} \\
+&= 1 + \omega_{0} = 0 \qquad \text{(the point is on the surface)} \\
 \omega_{0} &= -1
 \end{aligned}
 $$
@@ -82,6 +81,7 @@ $$
 	- *Logistic regression with 2-class case*
 		- Idea behind logistic regression formula --> bundle data complexity ("data" and likelihood functions) in a singular parameter
 		- Formulation:
+			-  Posterior --> $\mathbf{\sigma}(\alpha)$
 			- $$
 \begin{aligned}
 P(c_{1}|\vec{\mathbf{x}}) &= \frac{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1}) + P(\vec{\mathbf{x}}|c_{2})P(c_{2})} = \frac{1}{1 + \frac{P(\vec{\mathbf{x}}|c_{2})P(c_{2})}{P(\vec{\mathbf{x}}|c_{1})P(c_{1})}} \\
@@ -111,7 +111,7 @@ $$
 \begin{aligned}
 P(c_{1}|\vec{x}) &= \sigma(\vec{\omega}^T \vec{x} +\omega_{0}) \\
 \vec{\omega} &= \Sigma^{-1}(\vec{\mu}_{1}-\vec{\mu}_{2}) \\
-\omega_{0} &= -\frac{1}{2} \vec{\mu_{1}} \Sigma^{-1}\vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}} \Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
+\omega_{0} &= -\frac{1}{2} \vec{\mu_{1}}^T \Sigma^{-1}\vec{\mu_{1}} + \frac{1}{2} \vec{\mu_{2}}^T \Sigma^{-1} \vec{\mu_{2}} + \ln\left[ \frac{P(c_{1})}{P(c_{2})} \right]
 \end{aligned}
 $$
 - **Signal vs. Noise Example**

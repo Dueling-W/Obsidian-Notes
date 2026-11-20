@@ -33,10 +33,10 @@ $$
 \vec{r} &= \vec{y}_{M}-\vec{y} \qquad \text{residual vector} \\
 w_{*}&=argmin||\vec{r}(\vec{w})||_{2}^2 \qquad \text{minimizing the squared L2 norm} \\
 w_{*}&=(A^TA)^{-1}A^T \vec{y} \qquad \text{final definition of optimal weights} \\
-\vec{y_\text{model}} &= A \vec{\omega_{*}} = A(A^TA^{-1})A^T \vec{y}
+\vec{y_\text{model}} &= A \vec{\omega_{*}} = A(A^TA)^{-1}A^T \vec{y}
 \end{aligned}
 $$
-		- Project operator: $P = A(A^TA^{-1})A^T$ project $\vec{y}$ onto range(A)
+		- Project operator: $P = A(A^TA)^{-1}A^T$ project $\vec{y}$ onto range(A)
 		- $$
 \begin{aligned}
 P \vec{r} &= 0 \\
@@ -75,7 +75,7 @@ $$
 $$
 	- has a unique solution:
 		- $$
-\vec{\omega_{*}} = (A^TA^{-1}+\lambda I)^{-1}A^T \vec{y}
+\vec{\omega_{*}} = (A^TA+\lambda I)^{-1}A^T \vec{y}
 $$
 	- Investigating different $\lambda$
 		- Recall that if $\lambda = 0$, then you are finding the optimal solution
@@ -113,7 +113,7 @@ $$
 $$
 		- where the $y_{i}$ and $t_{i}$ are from the validation set, and the optimal weight vector $\vec{\omega_{*}}$ is found through:
 			- $$
-\vec{\omega_{*}} = (A^TA^{-1}+\lambda I)^{-1}A^T \vec{y}
+\vec{\omega_{*}} = (A^TA+\lambda I)^{-1}A^T \vec{y}
 $$
 			- which uses the $\vec{y}$ training data
 	- In a sentence: search for the best $(M, \lambda)$ by minimizing the model error on the validation data by using the optimal coefficients obtained from the training data.

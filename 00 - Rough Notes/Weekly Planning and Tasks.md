@@ -9,7 +9,7 @@
 | MTH 602     | Midterm studying             | 11/23    | ~11-18 hrs    | A2       | 🟨          |
 | CIS 570     | Light quiz studying          | 11/17    | ~2 hrs        | A7       | ✅           |
 | CIS 570     | Meeting w/David              | 11/16    | ~1 hr         | A5       | ✅           |
-| CIS 570     | Homework 5                   | 11/20    | ~3-4 hrs      | A6       | ❌           |
+| CIS 570     | Homework 5                   | 11/20    | ~3-4 hrs      | A6       | ✅           |
 | RA Work     | Dataset revisions (simulate) | -----    | ~4-5 hrs      | A3       | ✅           |
 | RA Work     | KSWIN Work                   | -----    | ~2 hrs        | B1       | ✅           |
 | RA Work     | Window tuning                | -----    | ~2 hrs        | B2       | ❌           |
