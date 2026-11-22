@@ -59,7 +59,7 @@ $$
 		- $$
 y(\vec{x}) = \vec{w}^T \vec{x} + w_{0} = \langle \vec{w}, \vec{x} \rangle + w_{0}
 $$
-			- First term --> vector weights
+		- First term --> vector weights
 		- $w_{0}$ --> offset from boundary 
 	- *Intuition for $\vec{w}, w_{0}$*
 		- Let $\omega_{0} = 0$ (special case)
@@ -84,8 +84,14 @@ $$
 $$
 			- $\vec{x}_{A} - \vec{x}_{B}$ lies along the surface, so $\vec{\omega}$ is perpendicular to the surface for any $\omega_{0}$
 		- Surface normal is defined by: 
+			- Let $x_{B}$ lie directly on the surface
 			- $$
-\hat{\omega} = \frac{\vec{\omega}}{\|\vec{\omega}\|_{2}}
+\begin{aligned}
+0 &= \vec{w}^T \vec{x}_{B} + w_{0} \\
+\frac{{\vec{w}^T \vec{x}_{B}}}{\|\vec{\omega}\|_{2}} &= - \frac{\omega_{0}}{\|\vec{\omega}\|_{2}} \\
+\hat{\omega} &= \frac{\vec{\omega}}{\|\vec{\omega}\|_{2}}
+\end{aligned}
+
 $$
 			- $\vec{\omega}$ determines the orientation of the surface
 		- ![[Pasted image 20261110135651.png]]
@@ -98,9 +104,25 @@ y(\vec{x_{B}}) &= \vec{\omega}^T \vec{x_{B}} + \omega_{0} = 0 \\
 \end{aligned}
 $$
 			- Formula for signed distance based on surface orientation with $\hat{\omega}$
+				- From distance formula --> we are taking the dot product between $\hat{{\omega}}^Tx_{B}$
+					- The dot product extracts the perpendicular component, which by extension, is the shortest distance from the origin to the plane
 				- $$
-\frac{y(x)}{\|\omega\|_{2}}
+\begin{aligned}
+r = \frac{y(x)}{\|\omega\|_{2}}
+\end{aligned}
 $$
+			    - To interpret the classification approach, below consider when both $\vec{x}$ and $\vec{x}_{B}$ are on the decision line
+				    - The formula from earlier would become:
+				    - $$
+\begin{aligned}
+r &= \frac{y(x)}{\|\omega\|_{2}} \\
+&= y(x) = \omega^T \vec{x} + \omega_{0}, \quad \omega_{0} = -\vec{\omega}^T \vec{x}_{B} \\
+&= \frac{{\omega^T \vec{x} -\vec{\omega}^T \vec{x}_{B}}}{{\|\omega\|_{2}}} \\
+&= \frac{\omega^T(\vec{x}-\vec{x}_{B})}{\|\omega\|_{2}} \\
+&= 0
+\end{aligned}
+$$
+                   - Equals 0 since we know that the numerator is 0 from the earlier proof using $x_{A}$ and $x_{B}$
 			- The above formula tells you if you are above or below the decision surface, therefore: 
 				- $$
 y(\vec{x}) =
@@ -109,6 +131,18 @@ y(\vec{x}) =
 \text{Class 2} & y < 0
 \end{cases}
 $$
+    - *Classification full example*
+	    - Consider the following parameters were obtained from some model:
+		    - $$
+\begin{gather}
+\vec{\omega} = \begin{bmatrix}
+3 \\
+4
+\end{bmatrix} \\
+\omega_{0} = -10
+\end{gather}
+$$
+       - 
 - **ROC and AUC**
 	- ROC = Receiver Operating Characteristic Curve
 	- x-axis: FPR (False Positive Rate)
