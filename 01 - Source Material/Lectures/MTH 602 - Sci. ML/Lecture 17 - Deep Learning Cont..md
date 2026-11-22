@@ -94,7 +94,7 @@ ReLU(x)' = \\
 1  & x > 0
 \end{cases}
 $$
-	       - ReLU is also fast... ref. to AlexNet breakthrough
+			- ReLU is also fast... ref. to AlexNet breakthrough
 	- *Universal approximation theorem*
 		- Suppose ground truth function is $y(t)$, where $y$ is continuous
 			- $$

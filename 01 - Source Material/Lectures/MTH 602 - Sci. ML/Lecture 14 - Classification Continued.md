@@ -139,10 +139,40 @@ $$
 3 \\
 4
 \end{bmatrix} \\
-\omega_{0} = -10
+\omega_{0} = -10 \\
+\text{Line Equation: } \quad y(x) = \vec{\omega}^T \vec{\mathbf{x}} + \omega_{0}  \\
+y(x) = 3x_{1} + 4x_{2} - 10 = 0
 \end{gather}
 $$
-       - 
+		- First, find the L2 norm of $\omega$ and determine how far away (0, 0) is from our decision line?
+			- $$
+\begin{gather}
+\|\omega\|_{2} = \sqrt{3^2+4^2} = \sqrt{25} = 5 \\
+\text{Find point on line (any)} \\
+3x_{1} + 4x_{2}-10 = 0 \quad x_{1} = 2 \quad 4x_{2} = 4 \quad (2, 1) \\
+
+\end{gather}
+$$
+			- Use the signed distance formula we found earlier to easily find the distance:
+			- $$
+\begin{aligned}
+r &= \frac{y(x)}{\|\omega\|_{2}} \\ \\
+&= \frac{\vec{\omega}^T \vec{x}_{\text{org}}+\omega_{0}}{5} \\
+&= \frac{(3,4)*(0, 0) - 10}{5} \quad \frac{-10}{5} = -2 \\
+r &= - 2
+\end{aligned}
+$$
+				- Therefore, our decision boundary is (signed) -2 away from the origin 
+		- Classifiy a new point $\vec{\mathbf{x}}_{\text{new}} = [4, 2]$
+			- To classify a point, you only need $y(x)$
+			- $$
+\begin{aligned}
+y(x) &= \vec{\mathbf{\omega}}^T \vec{\mathbf{x}}_{\text{new}} + \omega_{0} \\
+&= (3, 4) * (4, 2) - 10 \\
+&= (12+8) - 10 = 10 \\
+y(x) &=  10 \geq 0 \implies \text{Class 1}
+\end{aligned}
+$$
 - **ROC and AUC**
 	- ROC = Receiver Operating Characteristic Curve
 	- x-axis: FPR (False Positive Rate)
